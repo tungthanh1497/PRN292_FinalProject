@@ -35,7 +35,7 @@ namespace PRN292_FinalProject_WebForm
                 }
                 else if (customerID == 0)
                 {
-                    Label1.Text = "0";
+                    Response.Redirect("Admin.aspx");
                     return;
                 }
                 else

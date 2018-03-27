@@ -53,12 +53,34 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin.aspx" />
+    <Content Include="customersManage.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Code\databases\DAO.cs" />
+    <Compile Include="App_Code\models\CustomerTBL.cs" />
     <Compile Include="App_Code\models\LoginModel.cs" />
+    <Compile Include="App_Code\models\RoomContent.cs" />
+    <Compile Include="App_Code\models\RoomDetailModel.cs" />
+    <Compile Include="App_Code\models\RoomInfoTBL.cs" />
+    <Compile Include="App_Code\models\RoomStatus.cs" />
+    <Compile Include="App_Code\models\RoomTypeTBL.cs" />
+    <Compile Include="customersManage.aspx.cs">
+      <DependentUpon>customersManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customersManage.aspx.designer.cs">
+      <DependentUpon>customersManage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
