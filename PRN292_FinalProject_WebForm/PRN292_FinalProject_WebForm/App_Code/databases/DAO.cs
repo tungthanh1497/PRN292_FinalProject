@@ -193,7 +193,41 @@ namespace PRN292_FinalProject_WebForm
             return arr;
         }
 
- 
+        public static void createNoti(string title, string content, DateTime date)
+        {
+            string sql = @"insert into Notification Values (@tt, @ct, @date)";
+            SqlParameter param1 = new SqlParameter("@tt", SqlDbType.VarChar);
+            param1.Value = title;
+            SqlParameter param2 = new SqlParameter("@ct", SqlDbType.VarChar);
+            param2.Value = content;
+            SqlParameter param3 = new SqlParameter("@date", SqlDbType.Date);
+            param3.Value = date;
+            SqlCommand command = new SqlCommand(sql, getConnection());
+            command.Parameters.Add(param1);
+            command.Parameters.Add(param2);
+            command.Parameters.Add(param3);
+            command.Connection.Open();
+            int i = command.ExecuteNonQuery();
+            command.Connection.Close();
+        }
+
+
+        public static void updateTypeRoom(int RoomID, int price)
+        {
+            string sql = @"update RoomTypeTBL set price = @price  where roomTypeID = @roomID";
+            SqlParameter param1 = new SqlParameter("@price", SqlDbType.Int);
+            param1.Value = price;
+            SqlParameter param2 = new SqlParameter("@roomID", SqlDbType.Int);
+            param2.Value = RoomID;
+            SqlCommand command = new SqlCommand(sql, getConnection());
+            command.Parameters.Add(param1);
+            command.Parameters.Add(param2);
+            command.Connection.Open();
+            int i = command.ExecuteNonQuery();
+            command.Connection.Close();
+        }
+
+
     }
 }
 

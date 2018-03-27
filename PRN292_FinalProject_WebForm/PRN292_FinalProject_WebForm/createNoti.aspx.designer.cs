@@ -10,7 +10,7 @@
 namespace PRN292_FinalProject_WebForm {
     
     
-    public partial class editRoomType {
+    public partial class createNoti {
         
         /// <summary>
         /// form1 control.
@@ -76,66 +76,39 @@ namespace PRN292_FinalProject_WebForm {
         protected global::System.Web.UI.WebControls.Table Table1;
         
         /// <summary>
-        /// tbID control.
+        /// tbTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbID;
+        protected global::System.Web.UI.WebControls.TextBox tbTitle;
         
         /// <summary>
-        /// cbOption control.
+        /// tbContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbOption;
+        protected global::System.Web.UI.WebControls.TextBox tbContent;
         
         /// <summary>
-        /// cbClosed control.
+        /// tbDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbClosed;
+        protected global::System.Web.UI.WebControls.TextBox tbDate;
         
         /// <summary>
-        /// tbNote control.
+        /// btnCreate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbNote;
-        
-        /// <summary>
-        /// tbPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbPrice;
-        
-        /// <summary>
-        /// btnSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
-        
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Button btnCreate;
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="editRoomType.aspx.cs" Inherits="PRN292_FinalProject_WebForm.editRoomType" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="createNoti.aspx.cs" Inherits="PRN292_FinalProject_WebForm.createNoti" %>
 
 <!DOCTYPE html>
 
@@ -25,44 +25,30 @@
         <asp:Table ID="Table1" runat="server" Height="463px" Width="650px">
             
             <asp:TableRow>
-                <asp:TableCell>Room Type ID</asp:TableCell>
+                <asp:TableCell>Notification Title</asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="tbID" runat="server"></asp:TextBox> 
+                    <asp:TextBox ID="tbTitle" runat="server"></asp:TextBox> 
                 </asp:TableCell>
             </asp:TableRow>
 
              <asp:TableRow>
-                <asp:TableCell>Optional</asp:TableCell>
+                <asp:TableCell>Notification Content</asp:TableCell>
                 <asp:TableCell>
-                    <asp:CheckBox ID="cbOption" runat="server" />
+                    <asp:TextBox ID="tbContent" runat="server" TextMode="MultiLine" Columns="50" Rows="5"></asp:TextBox> 
                 </asp:TableCell>
             </asp:TableRow>
 
             <asp:TableRow>
-                <asp:TableCell>Closed</asp:TableCell>
+                <asp:TableCell>Date Created</asp:TableCell>
                 <asp:TableCell>
-                    <asp:CheckBox ID="cbClosed" runat="server" />
-                </asp:TableCell>
-            </asp:TableRow>
-
-            <asp:TableRow>
-                <asp:TableCell>Note</asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="tbNote" runat="server"></asp:TextBox> 
-                </asp:TableCell>
-            </asp:TableRow>
-
-            <asp:TableRow>
-                <asp:TableCell>Price</asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="tbPrice" runat="server" OnTextChanged="tbPrice_TextChanged1"></asp:TextBox> 
+                    <asp:TextBox ID="tbDate" runat="server"></asp:TextBox> 
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
         
         <br />
-        <asp:Button ID="btnSave" runat="server"  Text="Save" OnClick="btnSave_Click" />
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <asp:Button ID="btnCreate" runat="server" OnClick="btnCreate_Click" Text="Create" />
+        
     </div>
     </form>
 </body>

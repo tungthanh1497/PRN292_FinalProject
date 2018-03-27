@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin.aspx" />
+    <Content Include="createNoti.aspx" />
     <Content Include="customersManage.aspx" />
     <Content Include="editCustomer.aspx" />
     <Content Include="editRoomType.aspx" />
@@ -72,6 +73,13 @@
     </Compile>
     <Compile Include="App_Code\databases\DAO.cs" />
     <Compile Include="App_Code\models\RoomDetailModel.cs" />
+    <Compile Include="createNoti.aspx.cs">
+      <DependentUpon>createNoti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="createNoti.aspx.designer.cs">
+      <DependentUpon>createNoti.aspx</DependentUpon>
+    </Compile>
     <Compile Include="customersManage.aspx.cs">
       <DependentUpon>customersManage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
