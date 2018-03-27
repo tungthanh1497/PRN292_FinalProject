@@ -1,0 +1,6 @@
+E:\Documents\ky5\docs\PRN292\PE\SE04896_TungTT_PRN292\PRN292_FinalProject_WebForm\PRN292_FinalProject_WebForm\bin\PRN292_FinalProject_WebForm.dll.config
+E:\Documents\ky5\docs\PRN292\PE\SE04896_TungTT_PRN292\PRN292_FinalProject_WebForm\PRN292_FinalProject_WebForm\bin\PRN292_FinalProject_WebForm.dll
+E:\Documents\ky5\docs\PRN292\PE\SE04896_TungTT_PRN292\PRN292_FinalProject_WebForm\PRN292_FinalProject_WebForm\bin\PRN292_FinalProject_WebForm.pdb
+E:\Documents\ky5\docs\PRN292\PE\SE04896_TungTT_PRN292\PRN292_FinalProject_WebForm\PRN292_FinalProject_WebForm\obj\Debug\PRN292_FinalProject_WebForm.csprojResolveAssemblyReference.cache
+E:\Documents\ky5\docs\PRN292\PE\SE04896_TungTT_PRN292\PRN292_FinalProject_WebForm\PRN292_FinalProject_WebForm\obj\Debug\PRN292_FinalProject_WebForm.dll
+E:\Documents\ky5\docs\PRN292\PE\SE04896_TungTT_PRN292\PRN292_FinalProject_WebForm\PRN292_FinalProject_WebForm\obj\Debug\PRN292_FinalProject_WebForm.pdb
