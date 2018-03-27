@@ -19,140 +19,177 @@ namespace PRN292_FinalProject_WebForm
         int optional;
         int closed;
         string note;
+
+        public int RoomNum
+        {
+            get
+            {
+                return roomNum;
+            }
+
+            set
+            {
+                roomNum = value;
+            }
+        }
+
+        public string CusName
+        {
+            get
+            {
+                return cusName;
+            }
+
+            set
+            {
+                cusName = value;
+            }
+        }
+
+        public string IdentityCard
+        {
+            get
+            {
+                return identityCard;
+            }
+
+            set
+            {
+                identityCard = value;
+            }
+        }
+
+        public string PhoneNum
+        {
+            get
+            {
+                return phoneNum;
+            }
+
+            set
+            {
+                phoneNum = value;
+            }
+        }
+
+        public string ParentPhoneNum
+        {
+            get
+            {
+                return parentPhoneNum;
+            }
+
+            set
+            {
+                parentPhoneNum = value;
+            }
+        }
+
+        public DateTime DateJoin
+        {
+            get
+            {
+                return dateJoin;
+            }
+
+            set
+            {
+                dateJoin = value;
+            }
+        }
+
+        public int NumPerson
+        {
+            get
+            {
+                return numPerson;
+            }
+
+            set
+            {
+                numPerson = value;
+            }
+        }
+
+        public int RoomType
+        {
+            get
+            {
+                return roomType;
+            }
+
+            set
+            {
+                roomType = value;
+            }
+        }
+
+        public int Price
+        {
+            get
+            {
+                return price;
+            }
+
+            set
+            {
+                price = value;
+            }
+        }
+
+        public int Optional
+        {
+            get
+            {
+                return optional;
+            }
+
+            set
+            {
+                optional = value;
+            }
+        }
+
+        public int Closed
+        {
+            get
+            {
+                return closed;
+            }
+
+            set
+            {
+                closed = value;
+            }
+        }
+
+        public string Note
+        {
+            get
+            {
+                return note;
+            }
+
+            set
+            {
+                note = value;
+            }
+        }
+
         public RoomContent(int roomNum, string cusName, string identityCard, string phoneNum, string parentPhoneNum, DateTime dateJoin, int numPerson, int roomType, int price, int optional, int closed, string note)
         {
-            this.roomNum = roomNum;
-            this.cusName = cusName;
-            this.identityCard = identityCard;
-            this.phoneNum = phoneNum;
-            this.parentPhoneNum = parentPhoneNum;
-            this.dateJoin = dateJoin;
-            this.numPerson = numPerson;
-            this.roomType = roomType;
-            this.price = price;
-            this.optional = optional;
-            this.closed = closed;
-            this.note = note;
-        }
-
-        public int getRoomNum()
-        {
-            return roomNum;
-        }
-
-        public void setRoomNum(int roomNum)
-        {
-            this.roomNum = roomNum;
-        }
-
-        public string getCusName()
-        {
-            return cusName;
-        }
-
-        public void setCusName(string cusName)
-        {
-            this.cusName = cusName;
-        }
-
-        public string getIdentityCard()
-        {
-            return identityCard;
-        }
-
-        public void setIdentityCard(string identityCard)
-        {
-            this.identityCard = identityCard;
-        }
-
-        public string getPhoneNum()
-        {
-            return phoneNum;
-        }
-
-        public void setPhoneNum(string phoneNum)
-        {
-            this.phoneNum = phoneNum;
-        }
-
-        public string getParentPhoneNum()
-        {
-            return parentPhoneNum;
-        }
-
-        public void setParentPhoneNum(string parentPhoneNum)
-        {
-            this.parentPhoneNum = parentPhoneNum;
-        }
-
-        public DateTime getDateJoin()
-        {
-            return dateJoin;
-        }
-
-        public void setDateJoin(DateTime dateJoin)
-        {
-            this.dateJoin = dateJoin;
-        }
-
-        public int getNumPerson()
-        {
-            return numPerson;
-        }
-
-        public void setNumPerson(int numPerson)
-        {
-            this.numPerson = numPerson;
-        }
-
-        public int getRoomType()
-        {
-            return roomType;
-        }
-
-        public void setRoomType(int roomType)
-        {
-            this.roomType = roomType;
-        }
-
-        public int getPrice()
-        {
-            return price;
-        }
-
-        public void setPrice(int price)
-        {
-            this.price = price;
-        }
-
-        public int getOptional()
-        {
-            return optional;
-        }
-
-        public void setOptional(int optional)
-        {
-            this.optional = optional;
-        }
-
-        public int getClosed()
-        {
-            return closed;
-        }
-
-        public void setClosed(int closed)
-        {
-            this.closed = closed;
-        }
-
-        public string getNote()
-        {
-            return note;
-        }
-
-        public void setNote(string note)
-        {
-            this.note = note;
+            this.RoomNum = roomNum;
+            this.CusName = cusName;
+            this.IdentityCard = identityCard;
+            this.PhoneNum = phoneNum;
+            this.ParentPhoneNum = parentPhoneNum;
+            this.DateJoin = dateJoin;
+            this.NumPerson = numPerson;
+            this.RoomType = roomType;
+            this.Price = price;
+            this.Optional = optional;
+            this.Closed = closed;
+            this.Note = note;
         }
     }
 }

@@ -14,21 +14,20 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:HyperLink NavigateUrl="~/customersManage.aspx" ID="hplCustomerManage" runat="server">Customers Manage</asp:HyperLink>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:HyperLink NavigateUrl="~/Admin.aspx" ID="hplRoomType" runat="server">Room Type</asp:HyperLink>
+        <asp:HyperLink NavigateUrl="~/roomType.aspx" ID="hplRoomType" runat="server">Room Type</asp:HyperLink>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:HyperLink NavigateUrl="~/Admin.aspx" ID="hplCreateNotification" runat="server">Create Notification</asp:HyperLink>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:HyperLink NavigateUrl="~/Admin.aspx" ID="hplLogout" runat="server">Log out</asp:HyperLink>
         <br />
         <br />
-        <asp:GridView ID="gvAdmin" runat="server" Height="654px" Width="1143px" AutoGenerateColumns="false">
+        <asp:GridView ID="gvAdmin" runat="server" Height="654px" Width="1143px" AutoGenerateColumns="false" AllowPaging="True" OnPageIndexChanging="gvAdmin_PageIndexChanging" >
             <Columns>
                 <asp:BoundField HeaderText ="Room Number"  DataField="RoomNumber" />
                 <asp:BoundField HeaderText ="Number of Person" DataField="NumPerson" />
                 <asp:CheckBoxField ShowHeader="true" HeaderText ="Optional" DataField="Optional"  />
                 <asp:CheckBoxField ShowHeader="true" HeaderText ="Closed" DataField="Closed" />
-                <asp:CheckBoxField ShowHeader="true" HeaderText ="Available" DataField="Available" />
-                <asp:ButtonField CommandName="addExtra" runat="server" Text="Add Extra" />       
+                <asp:CheckBoxField ShowHeader="true" HeaderText ="Available" DataField="Available" />      
                 <asp:HyperLinkField DataNavigateUrlFields="RoomNumber" DataNavigateUrlFormatString="roomDetail.aspx?roomID={0}" Text="Detail" />   
                 <asp:HyperLinkField DataNavigateUrlFields="RoomNumber" DataNavigateUrlFormatString="createExtra.aspx?roomID={0}" Text="Add Extra" />         
             </Columns>

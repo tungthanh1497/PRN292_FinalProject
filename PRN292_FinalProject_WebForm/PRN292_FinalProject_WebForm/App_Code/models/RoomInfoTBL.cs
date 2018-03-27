@@ -12,52 +12,64 @@ namespace PRN292_FinalProject_WebForm
         private int numPerson;
         private bool available;
 
+        public int RoomNumber
+        {
+            get
+            {
+                return roomNumber;
+            }
+
+            set
+            {
+                roomNumber = value;
+            }
+        }
+
+        public int RoomTypeID
+        {
+            get
+            {
+                return roomTypeID;
+            }
+
+            set
+            {
+                roomTypeID = value;
+            }
+        }
+
+        public int NumPerson
+        {
+            get
+            {
+                return numPerson;
+            }
+
+            set
+            {
+                numPerson = value;
+            }
+        }
+
+        public bool Available
+        {
+            get
+            {
+                return available;
+            }
+
+            set
+            {
+                available = value;
+            }
+        }
+
         public RoomInfoTBL(int roomNumber, int roomTypeID, int numPerson, bool available)
         {
-            this.roomNumber = roomNumber;
-            this.roomTypeID = roomTypeID;
-            this.numPerson = numPerson;
-            this.available = available;
-        }
-
-        public int getRoomNumber()
-        {
-            return roomNumber;
-        }
-
-        public void setRoomNumber(int roomNumber)
-        {
-            this.roomNumber = roomNumber;
-        }
-
-        public int getRoomTypeID()
-        {
-            return roomTypeID;
-        }
-
-        public void setRoomTypeID(int roomTypeID)
-        {
-            this.roomTypeID = roomTypeID;
-        }
-
-        public int getNumPerson()
-        {
-            return numPerson;
-        }
-
-        public void setNumPerson(int numPerson)
-        {
-            this.numPerson = numPerson;
-        }
-
-        public bool isAvailable()
-        {
-            return available;
-        }
-
-        public void setAvailable(bool available)
-        {
-            this.available = available;
+            this.RoomNumber = roomNumber;
+            this.RoomTypeID = roomTypeID;
+            this.NumPerson = numPerson;
+            this.Available = available;
         }
     }
 }

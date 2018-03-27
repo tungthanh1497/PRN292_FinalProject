@@ -55,7 +55,11 @@
   <ItemGroup>
     <Content Include="Admin.aspx" />
     <Content Include="customersManage.aspx" />
+    <Content Include="editCustomer.aspx" />
+    <Content Include="editRoomType.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="roomDetail.aspx" />
+    <Content Include="roomType.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -67,13 +71,7 @@
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\databases\DAO.cs" />
-    <Compile Include="App_Code\models\CustomerTBL.cs" />
-    <Compile Include="App_Code\models\LoginModel.cs" />
-    <Compile Include="App_Code\models\RoomContent.cs" />
     <Compile Include="App_Code\models\RoomDetailModel.cs" />
-    <Compile Include="App_Code\models\RoomInfoTBL.cs" />
-    <Compile Include="App_Code\models\RoomStatus.cs" />
-    <Compile Include="App_Code\models\RoomTypeTBL.cs" />
     <Compile Include="customersManage.aspx.cs">
       <DependentUpon>customersManage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -81,6 +79,40 @@
     <Compile Include="customersManage.aspx.designer.cs">
       <DependentUpon>customersManage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="editCustomer.aspx.cs">
+      <DependentUpon>editCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editCustomer.aspx.designer.cs">
+      <DependentUpon>editCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editRoomType.aspx.cs">
+      <DependentUpon>editRoomType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editRoomType.aspx.designer.cs">
+      <DependentUpon>editRoomType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="roomDetail.aspx.cs">
+      <DependentUpon>roomDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="roomDetail.aspx.designer.cs">
+      <DependentUpon>roomDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\models\CustomerTBL.cs" />
+    <Compile Include="App_Code\models\LoginModel.cs" />
+    <Compile Include="roomType.aspx.cs">
+      <DependentUpon>roomType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="roomType.aspx.designer.cs">
+      <DependentUpon>roomType.aspx</DependentUpon>
+    </Compile>
+    <Content Include="App_Code\models\RoomContent.cs" />
+    <Compile Include="App_Code\models\RoomInfoTBL.cs" />
+    <Compile Include="App_Code\models\RoomStatus.cs" />
+    <Compile Include="App_Code\models\RoomTypeTBL.cs" />
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

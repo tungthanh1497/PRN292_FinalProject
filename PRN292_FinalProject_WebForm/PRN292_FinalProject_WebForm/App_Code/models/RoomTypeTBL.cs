@@ -13,64 +13,78 @@ namespace PRN292_FinalProject_WebForm
         private int price;
         private string note;
 
+        public int RoomTypeID
+        {
+            get
+            {
+                return roomTypeID;
+            }
+
+            set
+            {
+                roomTypeID = value;
+            }
+        }
+
+        public bool Optional
+        {
+            get
+            {
+                return optional;
+            }
+
+            set
+            {
+                optional = value;
+            }
+        }
+
+        public bool Closed
+        {
+            get
+            {
+                return closed;
+            }
+
+            set
+            {
+                closed = value;
+            }
+        }
+
+        public int Price
+        {
+            get
+            {
+                return price;
+            }
+
+            set
+            {
+                price = value;
+            }
+        }
+
+        public string Note
+        {
+            get
+            {
+                return note;
+            }
+
+            set
+            {
+                note = value;
+            }
+        }
+
         public RoomTypeTBL(int roomTypeID, bool optional, bool closed, int price, string note)
         {
-            this.roomTypeID = roomTypeID;
-            this.optional = optional;
-            this.closed = closed;
-            this.price = price;
-            this.note = note;
+            this.RoomTypeID = roomTypeID;
+            this.Optional = optional;
+            this.Closed = closed;
+            this.Price = price;
+            this.Note = note;
         }
-
-        public int getRoomTypeID()
-        {
-            return roomTypeID;
-        }
-
-        public void setRoomTypeID(int roomTypeID)
-        {
-            this.roomTypeID = roomTypeID;
-        }
-
-        public bool isOptional()
-        {
-            return optional;
-        }
-
-        public void setOptional(bool optional)
-        {
-            this.optional = optional;
-        }
-
-        public bool isClosed()
-        {
-            return closed;
-        }
-
-        public void setClosed(bool closed)
-        {
-            this.closed = closed;
-        }
-
-        public int getPrice()
-        {
-            return price;
-        }
-
-        public void setPrice(int price)
-        {
-            this.price = price;
-        }
-
-        public string getNote()
-        {
-            return note;
-        }
-
-        public void setNote(string note)
-        {
-            this.note = note;
-        }
-
     }
 }

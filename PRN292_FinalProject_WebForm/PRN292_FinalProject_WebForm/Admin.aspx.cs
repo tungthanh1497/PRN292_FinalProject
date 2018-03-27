@@ -29,17 +29,17 @@ namespace PRN292_FinalProject_WebForm
 
             for (int i = 0; i < roomInfo.Count; i++)
             {
-                roomNumber = roomInfo.ElementAt(i).getRoomNumber();
-                numPerson = roomInfo.ElementAt(i).getNumPerson();
-                available = roomInfo.ElementAt(i).isAvailable();
+                roomNumber = roomInfo.ElementAt(i).RoomNumber;
+                numPerson = roomInfo.ElementAt(i).NumPerson;
+                available = roomInfo.ElementAt(i).Available;
 
                 for (int u = 0; u < roomType.Count(); u++)
                 {
-                    if (roomInfo.ElementAt(u).getRoomTypeID() == roomType.ElementAt(u).getRoomTypeID())
+                    if (roomInfo.ElementAt(u).RoomTypeID == roomType.ElementAt(u).RoomTypeID)
                     {
-                        optional = roomType.ElementAt(u).isOptional();
-                        closed = roomType.ElementAt(u).isClosed();
-                        price = roomType.ElementAt(u).getPrice();
+                        optional = roomType.ElementAt(u).Optional;
+                        closed = roomType.ElementAt(u).Closed;
+                        price = roomType.ElementAt(u).Price;
                     }
                 }
                 roomStatus.Add(new RoomStatus(roomNumber, optional, closed, numPerson, price, available));
@@ -50,6 +50,12 @@ namespace PRN292_FinalProject_WebForm
         protected void Page_Load(object sender, EventArgs e)
         {
             loadRoomStatus();
+        }
+
+        protected void gvAdmin_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvAdmin.PageIndex = e.NewPageIndex;
+            gvAdmin.DataBind();
         }
     }
 }

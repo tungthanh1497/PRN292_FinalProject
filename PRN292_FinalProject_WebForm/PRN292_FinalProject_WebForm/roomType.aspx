@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="customersManage.aspx.cs" Inherits="PRN292_FinalProject_WebForm.customersManage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="roomType.aspx.cs" Inherits="PRN292_FinalProject_WebForm.roomType" %>
 
 <!DOCTYPE html>
 
@@ -21,16 +21,13 @@
         <asp:HyperLink NavigateUrl="~/Admin.aspx" ID="hplLogout" runat="server">Log out</asp:HyperLink>
         <br />
         <br />
-        <asp:GridView ID="gvCustomer" runat="server" Height="654px" Width="1143px" AutoGenerateColumns="false" AllowPaging="True" OnPageIndexChanging="gvCustomer_PageIndexChanging" >
+        <asp:GridView ID="gvRoomType" runat="server" Height="654px" Width="1143px" AutoGenerateColumns="false" >
             <Columns>
-                <asp:BoundField HeaderText ="Customer ID"  DataField="CustomerID" />
-                <asp:BoundField HeaderText ="Customer Name" DataField="CustomerName" />
-                <asp:BoundField HeaderText ="Identify Card" DataField="IdentityCard" />
-                <asp:BoundField HeaderText ="Phone Number" DataField="PhoneNumber" />
-                <asp:BoundField HeaderText ="Date Join" DataField="DateJoin" />
-                <asp:BoundField HeaderText ="Parent's Phone" DataField="ParentsPhoneNumber" />
-                <asp:BoundField HeaderText ="Room Number" DataField="RoomNumber" />
-                <asp:HyperLinkField DataNavigateUrlFields="CustomerID" DataNavigateUrlFormatString="editCustomer.aspx?customerID={0}" Text="Edit" />         
+                <asp:BoundField HeaderText ="Room Type"  DataField="RoomTypeID" />
+                <asp:BoundField HeaderText ="Price" DataField="Price" />                
+                <asp:CheckBoxField ShowHeader="true" HeaderText ="Optional" DataField="Optional"  />
+                <asp:CheckBoxField ShowHeader="true" HeaderText ="Closed" DataField="Closed" />
+                <asp:HyperLinkField DataNavigateUrlFields="RoomTypeID" DataNavigateUrlFormatString="editRoomType.aspx?roomTypeID={0}" Text="Edit Price" />         
             </Columns>
         </asp:GridView>
         
