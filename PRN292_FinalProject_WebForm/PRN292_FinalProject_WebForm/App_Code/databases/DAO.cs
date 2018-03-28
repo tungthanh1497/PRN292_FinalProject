@@ -507,6 +507,115 @@ namespace PRN292_FinalProject_WebForm
         }
         #endregion
 
+        //get account by user id (contain id name password)
+        public static LoginModel getAccountByID(int id)
+        {
+            List<RoomTypeTBL> arr = new List<RoomTypeTBL>();
+            LoginModel lg = null;
+            try
+            {
+                string sqlSelect = @"select * from LoginTBL where LoginTBL.customerID = @ID";
+                SqlCommand myCommand = new SqlCommand(sqlSelect, getConnection());
+                myCommand.Connection.Open();
+                myCommand.Parameters.Add("@ID", SqlDbType.Int);
+                myCommand.Parameters["@ID"].Value = id;
+                SqlDataReader myReader = myCommand.ExecuteReader();
+                if (myReader.HasRows)
+                {
+                    while (myReader.Read())
+                    {
+                        lg = new LoginModel(Convert.ToInt32(myReader["customerID"].ToString()),
+                            myReader["uname"].ToString(), myReader["psw"].ToString());
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return lg;
+        }
+
+        //function order detail to edit update(quantity by orderID and productID)
+        public static int updatePassWord(int id, string psw)
+        {
+            int insertSuccessRecord = 0;
+            try
+            {
+                string squeryInsert = @"update LoginTBL set psw =@passWord  where customerID =@ID";
+                SqlCommand myCommand = new SqlCommand(squeryInsert, getConnection());
+                myCommand.Connection.Open();
+                myCommand.Parameters.Add("@ID", SqlDbType.Int);
+                myCommand.Parameters["@ID"].Value = id;
+                myCommand.Parameters.Add("@passWord", SqlDbType.VarChar);
+                myCommand.Parameters["@passWord"].Value = psw;
+                insertSuccessRecord += myCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new System.Exception(ex.Message);
+            }
+            return insertSuccessRecord;
+        }
+        //get list notification 
+        public static List<NotificationTBL> getListNotification()
+        {
+            List<NotificationTBL> arr = new List<NotificationTBL>();
+            NotificationTBL lg = null;
+            try
+            {
+                string sqlSelect = @"select * from Notification";
+                SqlCommand myCommand = new SqlCommand(sqlSelect, getConnection());
+                myCommand.Connection.Open();
+                SqlDataReader myReader = myCommand.ExecuteReader();
+                if (myReader.HasRows)
+                {
+                    while (myReader.Read())
+                    {
+                        DateTime d = Convert.ToDateTime(myReader["DateCreated"].ToString());
+                        lg = new NotificationTBL(Convert.ToInt32(myReader["NotificationID"].ToString()), myReader["Title"].ToString()
+                            , myReader["Detail"].ToString(), d);
+                        arr.Add(lg);
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return arr;
+        }
+        //get notification by ID 
+        public static NotificationTBL getNotificationByID(int id)
+        {
+            NotificationTBL lg = null;
+            try
+            {
+                string sqlSelect = @"select * from Notification no where no.NotificationID = @ID";
+                SqlCommand myCommand = new SqlCommand(sqlSelect, getConnection());
+                myCommand.Connection.Open();
+                myCommand.Parameters.Add("@ID", SqlDbType.Int);
+                myCommand.Parameters["@ID"].Value = id;
+                SqlDataReader myReader = myCommand.ExecuteReader();
+                if (myReader.HasRows)
+                {
+                    while (myReader.Read())
+                    {
+                        DateTime d = Convert.ToDateTime(myReader["DateCreated"].ToString());
+                        lg = new NotificationTBL(Convert.ToInt32(myReader["NotificationID"].ToString()), myReader["Title"].ToString()
+                            , myReader["Detail"].ToString(), d);
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return lg;
+        }
     }
 }
 

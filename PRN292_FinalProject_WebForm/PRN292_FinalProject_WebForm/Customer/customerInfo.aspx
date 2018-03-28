@@ -5,19 +5,54 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style>
+        h1 {
+            font-family: Kunstler Script;
+            font-size: 50px;
+            color: #0000ff;
+        }
+
+        #backGround {
+            background-color: #e3f2fd;
+        }
+
+        .colorGreen {
+            color: forestgreen;
+        }
+
+        .colorBlue {
+            color: blue;
+        }
+        .table{
+           white-space: 5px;
+        }
+        #notification{
+            width:500px;
+            height:auto;
+            border-style:solid;
+            border-color: red;
+            color: red;
+        }
+        .buttonSubmit{
+            background:#64b5f6;
+            border-radius:12px;
+            width:80px;
+            height:30px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    <asp:HyperLink NavigateUrl="#" ID="hplRoomInfo" runat="server">Room Info</asp:HyperLink>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:HyperLink NavigateUrl="#" ID="hplCustomerManage" runat="server">Customers Manage</asp:HyperLink>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:HyperLink NavigateUrl="#" ID="hplRoomType" runat="server">Room Type</asp:HyperLink>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:HyperLink NavigateUrl="#" ID="hplCreateNotification" runat="server">Create Notification</asp:HyperLink>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:HyperLink NavigateUrl="#" ID="hplLogout" runat="server">Log out</asp:HyperLink>
+    <div id="backGround">
+         <h1>Welcome to Boarding House</h1>
+    <asp:HyperLink CssClass="colorGreen" NavigateUrl="#" ID="hplRoomInfo" runat="server">Information</asp:HyperLink>
+         &nbsp;&nbsp;<asp:HyperLink CssClass="colorGreen" NavigateUrl="#" ID="hplCustomerManage" runat="server">View Bill</asp:HyperLink>
+         &nbsp;&nbsp;
+        <asp:HyperLink CssClass="colorGreen" NavigateUrl="/Customer/CutomerNotification.aspx" ID="hplRoomType" runat="server">Notification</asp:HyperLink>
+         &nbsp;&nbsp;
+        <asp:HyperLink CssClass="colorGreen" NavigateUrl="/Customer/ChangePSW.aspx" ID="hplCreateNotification" runat="server">Change Password</asp:HyperLink>
+         &nbsp;&nbsp;
+        <asp:HyperLink CssClass="colorGreen" NavigateUrl="#" ID="hplLogout" runat="server">Log out</asp:HyperLink>
         <br />
         <br />
 

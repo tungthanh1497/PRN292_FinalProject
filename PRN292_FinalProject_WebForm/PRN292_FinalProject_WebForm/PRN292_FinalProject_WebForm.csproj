@@ -58,7 +58,9 @@
     <Content Include="Admin\customersManage.aspx" />
     <Content Include="Admin\editCustomer.aspx" />
     <Content Include="Admin\editRoomType.aspx" />
+    <Content Include="Customer\ChangePSW.aspx" />
     <Content Include="Customer\customerInfo.aspx" />
+    <Content Include="Customer\CutomerNotification.aspx" />
     <Content Include="Global.asax" />
     <Content Include="login.aspx" />
     <Content Include="Admin\roomDetail.aspx" />
@@ -75,6 +77,7 @@
     </Compile>
     <Compile Include="App_Code\databases\DAO.cs" />
     <Compile Include="App_Code\models\CustomerModel.cs" />
+    <Compile Include="App_Code\models\NotificationTBL.cs" />
     <Compile Include="App_Code\models\RoomDetailModel.cs" />
     <Compile Include="Admin\createNoti.aspx.cs">
       <DependentUpon>createNoti.aspx</DependentUpon>
@@ -124,12 +127,26 @@
     <Compile Include="App_Code\models\RoomInfoTBL.cs" />
     <Compile Include="App_Code\models\RoomStatus.cs" />
     <Compile Include="App_Code\models\RoomTypeTBL.cs" />
+    <Compile Include="Customer\ChangePSW.aspx.cs">
+      <DependentUpon>ChangePSW.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\ChangePSW.aspx.designer.cs">
+      <DependentUpon>ChangePSW.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer\customerInfo.aspx.cs">
       <DependentUpon>customerInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Customer\customerInfo.aspx.designer.cs">
       <DependentUpon>customerInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\CutomerNotification.aspx.cs">
+      <DependentUpon>CutomerNotification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\CutomerNotification.aspx.designer.cs">
+      <DependentUpon>CutomerNotification.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
