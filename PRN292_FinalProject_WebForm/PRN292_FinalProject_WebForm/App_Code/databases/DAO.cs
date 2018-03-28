@@ -227,6 +227,136 @@ namespace PRN292_FinalProject_WebForm
             command.Connection.Close();
         }
 
+        public static List<int> getRoomNumberAvailable()
+        {
+            List<int> arr = new List<int>();
+            try
+            {
+                string query = "select roomNumber from RoomInfoTBL where available = 1";
+                DataTable dt = getDataBySQL(query);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    arr.Add(Convert.ToInt32(dr["roomNumber"].ToString()));
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return arr;
+        }
+
+
+        public static bool getAvailableRoom(int roomNumber)
+        {
+            bool available = false;
+            try
+            {
+                string query = query = "select available from RoomInfoTBL where roomNumber =" + roomNumber;
+                DataTable dt = getDataBySQL(query);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    available = Convert.ToBoolean(dr["available"].ToString());
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return available;
+        }
+
+        public static void updateCustomer(int id, string name, string card, string phone, string parent, int roomNumber, string date)
+        {
+
+            string sql = @"update CustomerTBL set roomNumber = @roomNumber,
+                customerName = @cusName,
+                identityCard = @card,
+                phoneNumber = @phoneNumber,
+                parentsPhoneNumber = @parentPhoneNumber,
+                dateJoin = @dateJoin where customerID = @cusID";
+            SqlParameter param1 = new SqlParameter("@roomNumber", SqlDbType.Int);
+            param1.Value = roomNumber;
+            SqlParameter param2 = new SqlParameter("@cusName", SqlDbType.NVarChar);
+            param2.Value = name;
+            SqlParameter param3 = new SqlParameter("@card", SqlDbType.VarChar);
+            param3.Value = card;
+            SqlParameter param4 = new SqlParameter("@phoneNumber", SqlDbType.VarChar);
+            param4.Value = phone;
+            SqlParameter param5 = new SqlParameter("@parentPhoneNumber", SqlDbType.VarChar);
+            param5.Value = parent;
+            SqlParameter param6 = new SqlParameter("@dateJoin", SqlDbType.Date);
+            param6.Value = date;
+            SqlParameter param7 = new SqlParameter("@cusID", SqlDbType.Int);
+            param7.Value = id;
+
+            SqlCommand command = new SqlCommand(sql, getConnection());
+            command.Parameters.Add(param1);
+            command.Parameters.Add(param2);
+            command.Parameters.Add(param3);
+            command.Parameters.Add(param4);
+            command.Parameters.Add(param5);
+            command.Parameters.Add(param6);
+            command.Parameters.Add(param7);
+            command.Connection.Open();
+            int i = command.ExecuteNonQuery();
+            command.Connection.Close();
+
+        }
+
+        public static void changeNumpersonRoom(int roomNumber, int value)
+        {
+            string sql = @"update RoomInfoTBL set numPerson = numPerson + @value where roomNumber = @roomNumber";
+            SqlParameter param1 = new SqlParameter("@value", SqlDbType.Int);
+            param1.Value = value;
+            SqlParameter param2 = new SqlParameter("@roomNumber", SqlDbType.Int);
+            param2.Value = roomNumber;
+            SqlCommand command = new SqlCommand(sql, getConnection());
+            command.Parameters.Add(param1);
+            command.Parameters.Add(param2);
+            command.Connection.Open();
+            int i = command.ExecuteNonQuery();
+            command.Connection.Close();
+        }
+
+        public static void changeAvailble(int roomNumber, int status)
+        {
+            string sql = @"update RoomInfoTBL set available = @status where roomNumber = @roomNumber";
+            SqlParameter param1 = new SqlParameter("@status", SqlDbType.Int);
+            param1.Value = status;
+            SqlParameter param2 = new SqlParameter("@roomNumber", SqlDbType.Int);
+            param2.Value = roomNumber;
+            SqlCommand command = new SqlCommand(sql, getConnection());
+            command.Parameters.Add(param1);
+            command.Parameters.Add(param2);
+            command.Connection.Open();
+            int i = command.ExecuteNonQuery();
+            command.Connection.Close();
+        }
+
+        public static int getNumPersoninRoom(int roomNumber)
+        {
+            int numPerson = 0;      
+            try
+            {
+                string query = "select numPerson from RoomInfoTBL where roomNumber =" + roomNumber;
+                DataTable dt = getDataBySQL(query);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    numPerson = Convert.ToInt32(dr["numPerson"]);
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return numPerson;
+        }
 
     }
 }

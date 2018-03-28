@@ -22,7 +22,7 @@
         <br />
         <br />
 
-        <asp:Table ID="Table1" runat="server" Height="463px" Width="650px">
+        <asp:Table ID="Table1" runat="server" Height="395px" Width="650px">
             
             <asp:TableRow>
                 <asp:TableCell>Room Type ID</asp:TableCell>
@@ -55,14 +55,14 @@
             <asp:TableRow>
                 <asp:TableCell>Price</asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="tbPrice" runat="server" OnTextChanged="tbPrice_TextChanged1"></asp:TextBox> 
+                    <asp:TextBox ID="tbPrice" runat="server"></asp:TextBox> 
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
         
         <br />
+        &nbsp;<br />
         <asp:Button ID="btnSave" runat="server"  Text="Save" OnClick="btnSave_Click" />
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </div>
     </form>
 </body>
