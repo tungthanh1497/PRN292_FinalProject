@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="PRN292_FinalProject_WebForm.Admin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="roomManage.aspx.cs" Inherits="PRN292_FinalProject_WebForm.roomManage" %>
 
 <!DOCTYPE html>
 
@@ -10,7 +10,7 @@
      <form id="form1" runat="server">
     <div style="height: 706px">
         
-        <asp:HyperLink NavigateUrl="Admin.aspx" ID="hplRoomManage" runat="server">Room Manage</asp:HyperLink>
+        <asp:HyperLink NavigateUrl="roomManage.aspx" ID="hplRoomManage" runat="server">Room Manage</asp:HyperLink>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:HyperLink NavigateUrl="customersManage.aspx" ID="hplCustomerManage" runat="server">Customers Manage</asp:HyperLink>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

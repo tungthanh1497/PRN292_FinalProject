@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace PRN292_FinalProject_WebForm
 {
-    public partial class Admin : System.Web.UI.Page
+    public partial class roomManage : System.Web.UI.Page
     {
          void loadRoomStatus()
         {

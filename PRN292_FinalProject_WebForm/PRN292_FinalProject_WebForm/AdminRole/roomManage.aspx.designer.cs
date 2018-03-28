@@ -10,7 +10,7 @@
 namespace PRN292_FinalProject_WebForm {
     
     
-    public partial class Admin {
+    public partial class roomManage {
         
         /// <summary>
         /// form1 control.

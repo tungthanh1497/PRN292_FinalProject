@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="roomType.aspx.cs" Inherits="PRN292_FinalProject_WebForm.roomType" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="extraDetail.aspx.cs" Inherits="PRN292_FinalProject_WebForm.AdminRole.extraDetail" %>
 
 <!DOCTYPE html>
 
@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
     <div style="height: 706px">
         
-        <asp:HyperLink NavigateUrl="Admin.aspx" ID="hplRoomManage" runat="server">Room Manage</asp:HyperLink>
+        <asp:HyperLink NavigateUrl="roomManage.aspx" ID="hplRoomManage" runat="server">Room Manage</asp:HyperLink>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:HyperLink NavigateUrl="customersManage.aspx" ID="hplCustomerManage" runat="server">Customers Manage</asp:HyperLink>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -21,16 +21,9 @@
         <asp:HyperLink NavigateUrl="Admin.aspx" ID="hplLogout" runat="server">Log out</asp:HyperLink>
         <br />
         <br />
-        <asp:GridView ID="gvRoomType" runat="server" Height="654px" Width="1143px" AutoGenerateColumns="false" >
-            <Columns>
-                <asp:BoundField HeaderText ="Room Type"  DataField="RoomTypeID" />
-                <asp:BoundField HeaderText ="Price" DataField="Price" />                
-                <asp:CheckBoxField ShowHeader="true" HeaderText ="Optional" DataField="Optional"  ReadOnly="True" />
-                <asp:CheckBoxField ShowHeader="true" HeaderText ="Closed" DataField="Closed"  ReadOnly="True" />
-                <asp:HyperLinkField DataNavigateUrlFields="RoomTypeID" DataNavigateUrlFormatString="editRoomType.aspx?roomTypeID={0}" Text="Edit Price" />         
-            </Columns>
+
+        <asp:GridView ID="gvExtras" runat="server">
         </asp:GridView>
-        
     </div>
     </form>
 </body>

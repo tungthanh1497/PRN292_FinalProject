@@ -17,7 +17,6 @@ namespace PRN292_FinalProject_WebForm
                 RoomDetailModel room = DAO.getRoomDetailById(roomID);
                 List<int> listIDCus = room.IdMembers;
                 tbRoomNumber.Text = room.RoomNumber.ToString();
-                tbBill.Text = room.BillThisMonth.ToString();
 
                 customer1.Text = DAO.getNameByUserId(listIDCus.ElementAt(0));
                 customer1.NavigateUrl = "editCustomer.aspx?customerID=" + listIDCus.ElementAt(0);
@@ -61,6 +60,11 @@ namespace PRN292_FinalProject_WebForm
                 {
                     cbAvailable.Checked = false;
                 }
+
+
+                hplBillInMonth.Text = room.BillThisMonth.ToString();
+                hplBillInMonth.NavigateUrl = "billDetail.aspx?roomID=" + roomID;
+
             }
         }
 

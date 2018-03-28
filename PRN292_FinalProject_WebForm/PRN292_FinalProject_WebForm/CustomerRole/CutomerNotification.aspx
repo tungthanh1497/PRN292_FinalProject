@@ -72,16 +72,16 @@
     <div id="backGround">
 
             <h1>Welcome to Boarding House</h1>
-            <u><a class="colorGreen" href="/Customer/customerInfo.aspx">Information</a></a></u> &nbsp
+            <u><a class="colorGreen" href="customerInfo.aspx">Information</a></a></u> &nbsp
          <u><a class="colorGreen" href="">View Bill</a></a></u>&nbsp
-         <u><a class="colorGreen" href="/Customer/CutomerNotification.aspx">Notification</a></a></u>&nbsp
-         <u><a class="colorGreen" href="/Customer/ChangePSW.aspx">Change Password</a></a></u>&nbsp
+         <u><a class="colorGreen" href="CutomerNotification.aspx">Notification</a></a></u>&nbsp
+         <u><a class="colorGreen" href="ChangePSW.aspx">Change Password</a></a></u>&nbsp
          <u><a class="colorGreen" href>Sign out</a></a></u>&nbsp
             <h2 class="colorBlue">Notification </h2>
             <asp:GridView  ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#E3F2FD" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="0px" CellPadding="4" EnableModelValidation="True" ForeColor="Black" GridLines="Horizontal" ShowHeader="False" Width="425px">
                 <Columns>
                     <asp:BoundField DataField="sdfDate" />
-                    <asp:HyperLinkField DataNavigateUrlFields="notificationID" DataTextField="title" DataNavigateUrlFormatString="/Customer/CutomerNotification.aspx?ID={0}" />
+                    <asp:HyperLinkField DataNavigateUrlFields="notificationID" DataTextField="title" DataNavigateUrlFormatString="CutomerNotification.aspx?ID={0}" />
                 </Columns>
                 <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />

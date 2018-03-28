@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
     <div style="height: 706px">
         
-        <asp:HyperLink NavigateUrl="Admin.aspx" ID="hplRoomManage" runat="server">Room Manage</asp:HyperLink>
+        <asp:HyperLink NavigateUrl="roomManage.aspx" ID="hplRoomManage" runat="server">Room Manage</asp:HyperLink>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:HyperLink NavigateUrl="customersManage.aspx" ID="hplCustomerManage" runat="server">Customers Manage</asp:HyperLink>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -64,7 +64,7 @@
             <asp:TableRow>
                 <asp:TableCell>Bills in month</asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="tbBill" runat="server"></asp:TextBox> 
+                    <asp:HyperLink ID="hplBillInMonth" runat="server"></asp:HyperLink>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>

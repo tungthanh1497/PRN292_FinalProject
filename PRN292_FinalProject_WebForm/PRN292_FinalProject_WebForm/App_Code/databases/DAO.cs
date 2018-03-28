@@ -87,8 +87,8 @@ namespace PRN292_FinalProject_WebForm
             try
             {
                 int number = 0;
-                string sqlSelect = @"select COUNT(*) as numberPerson 
-                                    from CustomerTBL C 
+                string sqlSelect = @"select COUNT(*) as numberPerson  
+                                    from CustomerTBL C  
                                     where C.roomNumber=" + roomNumber;
                 DataTable dt = getDataBySQL(sqlSelect);
                 foreach (DataRow dr in dt.Rows)
@@ -103,6 +103,184 @@ namespace PRN292_FinalProject_WebForm
                 throw e;
             }
         }
+
+        public static bool billIsExist(int roomNumber, string date)
+        {
+            try
+            {
+                int num = 0;
+                string sqlSelect = @"select COUNT(*) as num from BillTBL 
+                                    where roomNumber=1 and monthBill='" + date + "'";
+                DataTable dt = getDataBySQL(sqlSelect);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    num = Convert.ToInt32(dr["num"].ToString());
+                    break;
+                }
+                return (num != 0);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static RoomInfoTBL getRoomInfoById(int id)
+        {
+            try
+            {
+                string sqlSelect = @"select * from RoomInfoTBL where roomNumber=" + id;
+                DataTable dt = getDataBySQL(sqlSelect);
+                RoomInfoTBL ri = null;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    ri = new RoomInfoTBL(Convert.ToInt32(dr["roomNumber"].ToString())
+                                        , Convert.ToInt32(dr["roomTypeID"].ToString())
+                                        , Convert.ToInt32(dr["numPerson"].ToString())
+                                        , Convert.ToBoolean(dr["available"].ToString()));
+                }
+                return ri;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+        public static void createNewBill(int roomNumber)
+        {
+            RoomInfoTBL ri = getRoomInfoById(roomNumber);
+            DateTime td = DateTime.Today;
+            string sql = @"  insert into BillTBL(roomNumber, defaultFee, electricity,extraFee,monthBill) 
+                            values(@roomNumber,@defaultFee,0,0,'"+td.Year+"-"+td.Month+"-01')";
+            SqlParameter roomNumberParam = new SqlParameter("@roomNumber", SqlDbType.Int);
+            roomNumberParam.Value = roomNumber;
+            SqlParameter defaultFeeParam = new SqlParameter("@defaultFee", SqlDbType.Int);
+            defaultFeeParam.Value = ri.NumPerson*100000;
+            SqlCommand command = new SqlCommand(sql, getConnection());
+            command.Parameters.Add(roomNumberParam);
+            command.Parameters.Add(defaultFeeParam);
+            command.Connection.Open();
+            int i = command.ExecuteNonQuery();
+            command.Connection.Close();
+        }
+        public static int getTotalBill(int roomNumber, string date)
+        {
+            if(!billIsExist(roomNumber, date))
+            {
+                createNewBill(roomNumber);
+            }
+            try
+            {
+                string sqlSelect = @"SELECT ((Select price
+		                                    from RoomTypeTBL
+		                                    where roomTypeID=(select roomTypeID 
+						                                    from RoomInfoTBL 
+						                                    where roomNumber="+ roomNumber + @")
+		                                    )+extraFee+defaultFee+electricity)as showup
+                                    FROM BillTBL
+                                    where roomNumber=" + roomNumber + " and monthBill='"+date+"'";
+                DataTable dt = getDataBySQL(sqlSelect);
+                int price=0;
+                foreach (DataRow dr in dt.Rows)
+                {
+
+                    price = Convert.ToInt32(dr["showup"].ToString());
+                }
+                return price;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+        public static int getRoomPriceByRoomNumber(int roomNumber)
+        {
+            try
+            {
+                int price = 0;
+                string sqlSelect = @"Select price 
+                                    from RoomTypeTBL 
+                                    where roomTypeID=(select roomTypeID 
+				                                    from RoomInfoTBL 
+				                                    where roomNumber="+roomNumber+")";
+                DataTable dt = getDataBySQL(sqlSelect);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    price = Convert.ToInt32(dr["price"].ToString());
+                    break;
+                }
+                return price;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static BillDetailModel getBillDetail(int roomNumber, string date)
+        {
+            try
+            {
+                string sqlSelect = @"SELECT extraFee,defaultFee,electricity
+                                    FROM BillTBL
+                                    where roomNumber=" + roomNumber + " and monthBill='" + date + "'";
+                DataTable dt = getDataBySQL(sqlSelect);
+                BillDetailModel btm = null;
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    btm = new BillDetailModel(getRoomPriceByRoomNumber(roomNumber)
+                                        , Convert.ToInt32(dr["extraFee"].ToString())
+                                        , Convert.ToInt32(dr["defaultFee"].ToString())
+                                        , Convert.ToInt32(dr["electricity"].ToString()));
+                }
+                return btm;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public static List<ExtraTBL> getExtras(int roomNumber, DateTime date)
+        {
+            try
+            {
+                string currentMonth = date.Year + "-" + date.Month + "-01";
+                string nextMonth = date.Year + "-" + (date.Month+1) + "-01"; ;
+                if (date.Month == 12)
+                {
+                    nextMonth = (date.Year+1) + "-01-01";
+                }
+                string sqlSelect = @"select * from ExtraTBL where roomNumber="+roomNumber 
+                                    + @"and extraDate>='"+ currentMonth + @"' 
+                                    and extraDate<'" + currentMonth + "'";
+                DataTable dt = getDataBySQL(sqlSelect);
+                List<ExtraTBL> exList = new List<ExtraTBL>();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    exList.Add(new ExtraTBL(Convert.ToInt32(dr["extraID"].ToString())
+                                        , Convert.ToInt32(dr["roomNumber"].ToString())
+                                        , dr["productName"].ToString()
+                                        , Convert.ToInt32(dr["quantity"].ToString())
+                                        , Convert.ToInt32(dr["pricePerProduct"].ToString())
+                                        , dr["detail"].ToString()
+                                        , Convert.ToDateTime(dr["extraDate"].ToString())));
+                }
+                return exList;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+
+
 
         #endregion
         #region ThoanNV
@@ -174,7 +352,9 @@ namespace PRN292_FinalProject_WebForm
                     {
                         idMembers.Add(Convert.ToInt32(dr3["customerID"]));
                     }
-                    roomDetailModel = new RoomDetailModel(roomNumber, optional, closed, 0, idMembers, available);
+                    DateTime td = DateTime.Today;
+                    int bill = getTotalBill(roomNumber, td.Year + "-" + td.Month + "-01");
+                    roomDetailModel = new RoomDetailModel(roomNumber, optional, closed, bill, idMembers, available);
 
 
                     //        NOTE bill = 0

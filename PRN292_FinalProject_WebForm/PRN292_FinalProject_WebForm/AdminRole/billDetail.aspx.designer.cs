@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PRN292_FinalProject_WebForm {
+namespace PRN292_FinalProject_WebForm.Admin {
     
     
-    public partial class roomDetail {
+    public partial class billDetail {
         
         /// <summary>
         /// form1 control.
@@ -76,93 +76,39 @@ namespace PRN292_FinalProject_WebForm {
         protected global::System.Web.UI.WebControls.Table Table1;
         
         /// <summary>
-        /// tbRoomNumber control.
+        /// lblRoomPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbRoomNumber;
+        protected global::System.Web.UI.WebControls.Label lblRoomPrice;
         
         /// <summary>
-        /// customer1 control.
+        /// lblDefaultFee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink customer1;
+        protected global::System.Web.UI.WebControls.Label lblDefaultFee;
         
         /// <summary>
-        /// customer2 control.
+        /// lblElectricity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink customer2;
+        protected global::System.Web.UI.WebControls.Label lblElectricity;
         
         /// <summary>
-        /// customer3 control.
+        /// hplExtraFee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink customer3;
-        
-        /// <summary>
-        /// cbOption control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbOption;
-        
-        /// <summary>
-        /// cbClosed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbClosed;
-        
-        /// <summary>
-        /// cbAvailable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbAvailable;
-        
-        /// <summary>
-        /// tbBill control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbBill;
-        
-        /// <summary>
-        /// btnSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
-        
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.HyperLink hplExtraFee;
     }
 }

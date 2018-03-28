@@ -36,13 +36,13 @@ namespace PRN292_FinalProject_WebForm
                 else if (customerID == 0)
                 {
                     Session["userID"] = 0;
-                    Response.Redirect("Admin/Admin.aspx");
+                    Response.Redirect("AdminRole/roomManage.aspx");
                     return;
                 }
                 else
                 {
                     Session["userID"] = customerID;
-                    Response.Redirect("Customer/customerInfo.aspx");
+                    Response.Redirect("CustomerRole/customerInfo.aspx");
                     return;
                 }
             }

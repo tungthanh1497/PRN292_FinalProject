@@ -68,9 +68,9 @@
         <div id="backGround">
 
             <h1>Welcome to Boarding House</h1>
-            <u><a class="colorGreen" href="/Customer/customerInfo.aspx">Information</a></a></u> &nbsp
+            <u><a class="colorGreen" href="customerInfo.aspx">Information</a></a></u> &nbsp
          <u><a class="colorGreen" href="">View Bill</a></a></u>&nbsp
-         <u><a class="colorGreen" href="/Customer/CutomerNotification.aspx">Notification</a></a></u>&nbsp
+         <u><a class="colorGreen" href="CutomerNotification.aspx">Notification</a></a></u>&nbsp
          <u><a class="colorGreen" href>Change Password</a></a></u>&nbsp
          <u><a class="colorGreen" href>Sign out</a></a></u>&nbsp
             <h2 class="colorBlue">Change Password</h2>

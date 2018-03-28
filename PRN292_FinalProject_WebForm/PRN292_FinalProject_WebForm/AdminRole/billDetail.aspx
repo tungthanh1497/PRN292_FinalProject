@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="editRoomType.aspx.cs" Inherits="PRN292_FinalProject_WebForm.editRoomType" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="billDetail.aspx.cs" Inherits="PRN292_FinalProject_WebForm.Admin.billDetail" %>
 
 <!DOCTYPE html>
 
@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
     <div style="height: 706px">
         
-        <asp:HyperLink NavigateUrl="Admin.aspx" ID="hplRoomManage" runat="server">Room Manage</asp:HyperLink>
+        <asp:HyperLink NavigateUrl="roomManage.aspx" ID="hplRoomManage" runat="server">Room Manage</asp:HyperLink>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:HyperLink NavigateUrl="customersManage.aspx" ID="hplCustomerManage" runat="server">Customers Manage</asp:HyperLink>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -25,44 +25,33 @@
         <asp:Table ID="Table1" runat="server" Height="395px" Width="650px">
             
             <asp:TableRow>
-                <asp:TableCell>Room Type ID</asp:TableCell>
+                <asp:TableCell>Room Price</asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="tbID" runat="server"></asp:TextBox> 
+                    <asp:Label ID="lblRoomPrice" runat="server" Text=""></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>Default Fee:</asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblDefaultFee" runat="server" Text=""></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
 
              <asp:TableRow>
-                <asp:TableCell>Optional</asp:TableCell>
+                <asp:TableCell>Electricity:</asp:TableCell>
                 <asp:TableCell>
-                    <asp:CheckBox ID="cbOption" runat="server" />
+                    <asp:Label ID="lblElectricity" runat="server" Text=""></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
 
             <asp:TableRow>
-                <asp:TableCell>Closed</asp:TableCell>
+                <asp:TableCell>Extra Fee</asp:TableCell>
                 <asp:TableCell>
-                    <asp:CheckBox ID="cbClosed" runat="server" />
-                </asp:TableCell>
-            </asp:TableRow>
-
-            <asp:TableRow>
-                <asp:TableCell>Note</asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="tbNote" runat="server"></asp:TextBox> 
-                </asp:TableCell>
-            </asp:TableRow>
-
-            <asp:TableRow>
-                <asp:TableCell>Price</asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="tbPrice" runat="server"></asp:TextBox> 
+                    <asp:HyperLink ID="hplExtraFee" runat="server"></asp:HyperLink>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
-        
-        <br />
-        &nbsp;<br />
-        <asp:Button ID="btnSave" runat="server"  Text="Save" OnClick="btnSave_Click" />
     </div>
     </form>
 </body>

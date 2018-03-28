@@ -48,9 +48,9 @@
     <asp:HyperLink CssClass="colorGreen" NavigateUrl="#" ID="hplRoomInfo" runat="server">Information</asp:HyperLink>
          &nbsp;&nbsp;<asp:HyperLink CssClass="colorGreen" NavigateUrl="#" ID="hplCustomerManage" runat="server">View Bill</asp:HyperLink>
          &nbsp;&nbsp;
-        <asp:HyperLink CssClass="colorGreen" NavigateUrl="/Customer/CutomerNotification.aspx" ID="hplRoomType" runat="server">Notification</asp:HyperLink>
+        <asp:HyperLink CssClass="colorGreen" NavigateUrl="CutomerNotification.aspx" ID="hplRoomType" runat="server">Notification</asp:HyperLink>
          &nbsp;&nbsp;
-        <asp:HyperLink CssClass="colorGreen" NavigateUrl="/Customer/ChangePSW.aspx" ID="hplCreateNotification" runat="server">Change Password</asp:HyperLink>
+        <asp:HyperLink CssClass="colorGreen" NavigateUrl="ChangePSW.aspx" ID="hplCreateNotification" runat="server">Change Password</asp:HyperLink>
          &nbsp;&nbsp;
         <asp:HyperLink CssClass="colorGreen" NavigateUrl="#" ID="hplLogout" runat="server">Log out</asp:HyperLink>
         <br />
