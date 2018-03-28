@@ -144,7 +144,7 @@ namespace PRN292_FinalProject_WebForm
             }
             return arr;
         }
-        public RoomDetailModel getRoomDetailById(int id)
+        public static RoomDetailModel getRoomDetailById(int id)
         {
             RoomDetailModel roomDetailModel = null;
             try
@@ -163,8 +163,8 @@ namespace PRN292_FinalProject_WebForm
                     foreach (DataRow dr2 in dt2.Rows)
                     {
 
-                        optional = Convert.ToBoolean(dr["optional"]);
-                        closed = Convert.ToBoolean(dr["closed"]);
+                        optional = Convert.ToBoolean(dr2["optional"]);
+                        closed = Convert.ToBoolean(dr2["closed"]);
                     }
 
                     List<int> idMembers = new List<int>();
@@ -172,11 +172,12 @@ namespace PRN292_FinalProject_WebForm
                     DataTable dt3 = getDataBySQL(sqlSelect);
                     foreach (DataRow dr3 in dt3.Rows)
                     {
-                        idMembers.Add(Convert.ToInt32(dr["customerID"]));
+                        idMembers.Add(Convert.ToInt32(dr3["customerID"]));
                     }
+                    roomDetailModel = new RoomDetailModel(roomNumber, optional, closed, 0, idMembers, available);
 
 
-                    //        select roomTypeID from RoomInfoTBL where roomNumber=
+                    //        NOTE bill = 0
 
 
                     //    while (rs.next())

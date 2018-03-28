@@ -11,7 +11,8 @@ namespace PRN292_FinalProject_WebForm
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int ID = Convert.ToInt32(Request.QueryString["roomID"].ToString());
+            int roomID = Convert.ToInt32(Request.QueryString["roomID"].ToString());
+            RoomDetailModel room = DAO.getRoomDetailById(roomID);
         }
     }
 }
