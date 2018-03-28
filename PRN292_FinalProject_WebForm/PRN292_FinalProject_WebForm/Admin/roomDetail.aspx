@@ -8,8 +8,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    <asp:HyperLink NavigateUrl="Admin.aspx" ID="hplRoomManage" runat="server">Room Manage</asp:HyperLink>
+    <div style="height: 706px">
+        
+        <asp:HyperLink NavigateUrl="Admin.aspx" ID="hplRoomManage" runat="server">Room Manage</asp:HyperLink>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:HyperLink NavigateUrl="customersManage.aspx" ID="hplCustomerManage" runat="server">Customers Manage</asp:HyperLink>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -20,6 +21,58 @@
         <asp:HyperLink NavigateUrl="Admin.aspx" ID="hplLogout" runat="server">Log out</asp:HyperLink>
         <br />
         <br />
+
+        <asp:Table ID="Table1" runat="server" Height="395px" Width="650px">
+            
+            <asp:TableRow>
+                <asp:TableCell>Room Number</asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox ID="tbRoomNumber" runat="server"></asp:TextBox> 
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>Member(s):</asp:TableCell>
+                <asp:TableCell>
+                    <asp:HyperLink ID="customer1" runat="server"></asp:HyperLink><br />
+                    <asp:HyperLink ID="customer2" runat="server"></asp:HyperLink><br />
+                    <asp:HyperLink ID="customer3" runat="server"></asp:HyperLink><br />
+                </asp:TableCell>
+            </asp:TableRow>
+
+             <asp:TableRow>
+                <asp:TableCell>Optional</asp:TableCell>
+                <asp:TableCell>
+                    <asp:CheckBox ID="cbOption" runat="server" />
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>Closed</asp:TableCell>
+                <asp:TableCell>
+                    <asp:CheckBox ID="cbClosed" runat="server" />
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>Available</asp:TableCell>
+                <asp:TableCell>
+                    <asp:CheckBox ID="cbAvailable" runat="server" />
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>Bills in month</asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox ID="tbBill" runat="server"></asp:TextBox> 
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+        
+        <br />
+        &nbsp;<br />
+        <asp:Button ID="btnSave" runat="server"  Text="Save Change" OnClick="btnSave_Click" />
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </div>
     </form>
 </body>

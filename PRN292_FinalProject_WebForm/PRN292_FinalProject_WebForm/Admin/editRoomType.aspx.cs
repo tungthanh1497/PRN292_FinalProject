@@ -47,14 +47,14 @@ namespace PRN292_FinalProject_WebForm
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
 
                 loadInfo();
             }
 
         }
-  
+
         protected void btnSave_Click(object sender, EventArgs e)
         {
             int price = Convert.ToInt32(tbPrice.Text.ToString());

@@ -25,8 +25,8 @@
             <Columns>
                 <asp:BoundField HeaderText ="Room Type"  DataField="RoomTypeID" />
                 <asp:BoundField HeaderText ="Price" DataField="Price" />                
-                <asp:CheckBoxField ShowHeader="true" HeaderText ="Optional" DataField="Optional"  />
-                <asp:CheckBoxField ShowHeader="true" HeaderText ="Closed" DataField="Closed" />
+                <asp:CheckBoxField ShowHeader="true" HeaderText ="Optional" DataField="Optional"  ReadOnly="True" />
+                <asp:CheckBoxField ShowHeader="true" HeaderText ="Closed" DataField="Closed"  ReadOnly="True" />
                 <asp:HyperLinkField DataNavigateUrlFields="RoomTypeID" DataNavigateUrlFormatString="editRoomType.aspx?roomTypeID={0}" Text="Edit Price" />         
             </Columns>
         </asp:GridView>

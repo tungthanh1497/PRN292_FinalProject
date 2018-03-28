@@ -16,7 +16,7 @@ namespace PRN292_FinalProject_WebForm
             List<int> listRoomAvailable = DAO.getRoomNumberAvailable();
             dlRoomAvailble.DataSource = listRoomAvailable;
             dlRoomAvailble.DataBind();
-            for(int i = 0; i < listCus.Count; i++)
+            for (int i = 0; i < listCus.Count; i++)
             {
                 if (listCus.ElementAt(i).CustomerID == customerID)
                 {
@@ -33,8 +33,8 @@ namespace PRN292_FinalProject_WebForm
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if(!IsPostBack)
+
+            if (!IsPostBack)
             {
                 loadInfo();
             }
@@ -50,19 +50,46 @@ namespace PRN292_FinalProject_WebForm
             string cusName = tbCName.Text.ToString();
             string card = tbCard.Text.ToString();
             int newRoomNumber = Convert.ToInt32(dlRoomAvailble.SelectedValue.ToString());
-            
-            if(DAO.getAvailableRoom(newRoomNumber) == true)
+
+            if (DAO.getAvailableRoom(newRoomNumber) == true)
             {
                 DAO.updateCustomer(customerID, cusName, card, phoneNumber, parentPhone, newRoomNumber, dateJoin);
                 DAO.changeNumpersonRoom(newRoomNumber, 1);
                 DAO.changeNumpersonRoom(oldRoomNumber, -1);
-                if(DAO.getNumPersoninRoom(newRoomNumber) == 3)
+                if (DAO.getNumPersoninRoom(newRoomNumber) == 3)
                 {
                     DAO.changeAvailble(newRoomNumber, 0);
                 }
                 DAO.changeAvailble(oldRoomNumber, 1);
-            }   
+            }
             Response.Redirect("Admin.aspx");
+        }
+
+        protected void btnDeleteCus_Click(object sender, EventArgs e)
+        {
+
+            Panel1.Visible = true;
+
+        }
+
+        protected void btnYes_Click(object sender, EventArgs e)
+        {
+            int customerID = Convert.ToInt32(Request.QueryString["customerID"].ToString());
+            int roomNumber = DAO.getRoomNumber(customerID);
+            DAO.changeNumperson(roomNumber, -1);
+            DAO.removeCustomer(customerID);
+            if (DAO.getNumberPersonsInRoom(roomNumber) < 3)
+            {
+                DAO.changeAvailble(roomNumber, 1);
+            }
+            //NOTE UPDATE DEFAULT FEE
+            Response.Redirect("customersManage.aspx");
+        }
+
+        protected void btnNo_Click(object sender, EventArgs e)
+        {
+
+            Panel1.Visible = false;
         }
     }
 }

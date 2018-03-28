@@ -411,7 +411,100 @@ namespace PRN292_FinalProject_WebForm
             }
             return numPerson;
         }
+        public static string getNameByUserId(int userID)
+        {
+            string name = "";
+            try
+            {
+                string query = "select * from CustomerTBL where customerID=" + userID;
+                DataTable dt = getDataBySQL(query);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    name = dr["customerName"].ToString();
+                }
 
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return name;
+        }
+
+        public static void updateRoomInFo(int RoomNumber, int RoomTypeID)
+        {
+            string sql = @"update RoomInfoTBL set roomTypeID = @roomTypeID where roomNumber = @roomNumber";
+            SqlParameter param1 = new SqlParameter("@roomTypeID", SqlDbType.Int);
+            param1.Value = RoomTypeID;
+            SqlParameter param2 = new SqlParameter("@roomNumber", SqlDbType.Int);
+            param2.Value = RoomNumber;
+            SqlCommand command = new SqlCommand(sql, getConnection());
+            command.Parameters.Add(param1);
+            command.Parameters.Add(param2);
+            command.Connection.Open();
+            int i = command.ExecuteNonQuery();
+            command.Connection.Close();
+
+        }
+
+        public static int getRoomNumber(int customerID)
+        {
+            int roomNumber = 0;
+            try
+            {
+                string query = "select roomNumber from CustomerTBL where customerID =" + customerID;
+                DataTable dt = getDataBySQL(query);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    roomNumber = Convert.ToInt32(dr["roomNumber"]);
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return roomNumber;
+        }
+
+        public static void changeNumperson(int roomNumber, int value)
+        {
+            string sql = @"update RoomInfoTBL set numPerson = numPerson + @value where roomNumber = @roomNumber";
+            SqlParameter param1 = new SqlParameter("@value", SqlDbType.Int);
+            param1.Value = value;
+            SqlParameter param2 = new SqlParameter("@roomNumber", SqlDbType.Int);
+            param2.Value = roomNumber;
+            SqlCommand command = new SqlCommand(sql, getConnection());
+            command.Parameters.Add(param1);
+            command.Parameters.Add(param2);
+            command.Connection.Open();
+            int i = command.ExecuteNonQuery();
+            command.Connection.Close();
+
+        }
+
+        public static void removeCustomer(int customerID)
+        {
+            string sql = @"delete from CustomerTBL where customerID = @cusID";
+            SqlParameter param1 = new SqlParameter("@cusID", SqlDbType.Int);
+            param1.Value = customerID;
+            SqlCommand command = new SqlCommand(sql, getConnection());
+            command.Parameters.Add(param1);
+            command.Connection.Open();
+            int i = command.ExecuteNonQuery();
+            command.Connection.Close();
+
+            sql = @"delete from LoginTBL where customerID = @cusID";
+            SqlParameter param2 = new SqlParameter("@cusID", SqlDbType.Int);
+            param2.Value = customerID;
+            SqlCommand command2 = new SqlCommand(sql, getConnection());
+            command2.Parameters.Add(param2);
+            command2.Connection.Open();
+            int i2 = command2.ExecuteNonQuery();
+            command2.Connection.Close();
+        }
         #endregion
 
     }

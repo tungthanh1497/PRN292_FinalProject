@@ -9,7 +9,7 @@ namespace PRN292_FinalProject_WebForm
 {
     public partial class Admin : System.Web.UI.Page
     {
-        void loadRoomStatus()
+         void loadRoomStatus()
         {
             int roomNumber;
             bool optional = false;
@@ -33,13 +33,15 @@ namespace PRN292_FinalProject_WebForm
                 numPerson = roomInfo.ElementAt(i).NumPerson;
                 available = roomInfo.ElementAt(i).Available;
 
+
                 for (int u = 0; u < roomType.Count(); u++)
                 {
-                    if (roomInfo.ElementAt(u).RoomTypeID == roomType.ElementAt(u).RoomTypeID)
+                    if (roomInfo.ElementAt(i).RoomTypeID == roomType.ElementAt(u).RoomTypeID)
                     {
                         optional = roomType.ElementAt(u).Optional;
                         closed = roomType.ElementAt(u).Closed;
                         price = roomType.ElementAt(u).Price;
+                        break;
                     }
                 }
                 roomStatus.Add(new RoomStatus(roomNumber, optional, closed, numPerson, price, available));

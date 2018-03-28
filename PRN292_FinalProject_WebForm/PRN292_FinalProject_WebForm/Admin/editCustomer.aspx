@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div style="height: 706px">
+    <div style="height: 706px" id="displayDiv">
         
         <asp:HyperLink NavigateUrl="Admin.aspx" ID="hplRoomManage" runat="server">Room Manage</asp:HyperLink>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -76,12 +76,28 @@
                     <asp:DropDownList ID="dlRoomAvailble" runat="server"></asp:DropDownList> 
                 </asp:TableCell>
             </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>    </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Button ID="btnDeleteCus" runat="server" Text="Remove Customer" OnClick="btnDeleteCus_Click"/>
+                </asp:TableCell>
+            </asp:TableRow>
+
         </asp:Table>
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <asp:Panel ID="Panel1" runat="server" Height="119px" style="margin-top: 0px" Visible="False">
+            <asp:Label ID="Label2" runat="server" Text="Do you want to remove this Customer?"></asp:Label>
+            <br />
+            <br />
+            <asp:Button ID="btnYes" runat="server" OnClick="btnYes_Click" Text="Yes" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnNo" runat="server" Text="No" Width="40px" OnClick="btnNo_Click" />
+        </asp:Panel>
+        
         <br />
         &nbsp;<br />
         <asp:Button ID="btnSave" runat="server"  Text="Save" OnClick="btnSave_Click" />
     </div>
+        
     </form>
 </body>
 </html>
