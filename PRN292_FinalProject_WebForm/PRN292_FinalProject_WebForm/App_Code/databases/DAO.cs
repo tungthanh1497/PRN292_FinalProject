@@ -24,6 +24,8 @@ namespace PRN292_FinalProject_WebForm
             return ds.Tables[0];
         }
 
+        #region TungTT
+
         /*
          * login function
          * -1: login fail
@@ -53,6 +55,57 @@ namespace PRN292_FinalProject_WebForm
             }
         }
 
+
+        public static CustomerModel getCustomerByID(int customerID)
+        {
+            try
+            {
+                string sqlSelect = @"select * from CustomerTBL where customerID=" + customerID;
+                DataTable dt = getDataBySQL(sqlSelect);
+                CustomerModel cm = null;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cm = new CustomerModel(Convert.ToInt32(dr["customerID"].ToString())
+                                        , Convert.ToInt32(dr["roomNumber"].ToString())
+                                        , dr["customerName"].ToString()
+                                        , dr["identityCard"].ToString()
+                                        , dr["phoneNumber"].ToString()
+                                        , dr["parentsPhoneNumber"].ToString()
+                                        , Convert.ToDateTime(dr["dateJoin"].ToString())
+                                        );
+                }
+                return cm;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static int getNumberPersonsInRoom(int roomNumber)
+        {
+            try
+            {
+                int number = 0;
+                string sqlSelect = @"select COUNT(*) as numberPerson 
+                                    from CustomerTBL C 
+                                    where C.roomNumber=" + roomNumber;
+                DataTable dt = getDataBySQL(sqlSelect);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    number = Convert.ToInt32(dr["numberPerson"].ToString());
+                    break;
+                }
+                return number;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        #endregion
+        #region ThoanNV
         public static List<RoomInfoTBL> getDataRoomInfo()
         {
             List<RoomInfoTBL> arr = new List<RoomInfoTBL>();
@@ -340,7 +393,7 @@ namespace PRN292_FinalProject_WebForm
 
         public static int getNumPersoninRoom(int roomNumber)
         {
-            int numPerson = 0;      
+            int numPerson = 0;
             try
             {
                 string query = "select numPerson from RoomInfoTBL where roomNumber =" + roomNumber;
@@ -357,6 +410,8 @@ namespace PRN292_FinalProject_WebForm
             }
             return numPerson;
         }
+
+        #endregion
 
     }
 }

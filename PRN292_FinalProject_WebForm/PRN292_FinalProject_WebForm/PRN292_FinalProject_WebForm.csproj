@@ -53,74 +53,87 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin.aspx" />
-    <Content Include="createNoti.aspx" />
-    <Content Include="customersManage.aspx" />
-    <Content Include="editCustomer.aspx" />
-    <Content Include="editRoomType.aspx" />
+    <Content Include="Admin\Admin.aspx" />
+    <Content Include="Admin\createNoti.aspx" />
+    <Content Include="Admin\customersManage.aspx" />
+    <Content Include="Admin\editCustomer.aspx" />
+    <Content Include="Admin\editRoomType.aspx" />
+    <Content Include="Customer\customerInfo.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="login.aspx" />
-    <Content Include="roomDetail.aspx" />
-    <Content Include="roomType.aspx" />
+    <Content Include="Admin\roomDetail.aspx" />
+    <Content Include="Admin\roomType.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.aspx.cs">
+    <Compile Include="Admin\Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin.aspx.designer.cs">
+    <Compile Include="Admin\Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\databases\DAO.cs" />
+    <Compile Include="App_Code\models\CustomerModel.cs" />
     <Compile Include="App_Code\models\RoomDetailModel.cs" />
-    <Compile Include="createNoti.aspx.cs">
+    <Compile Include="Admin\createNoti.aspx.cs">
       <DependentUpon>createNoti.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="createNoti.aspx.designer.cs">
+    <Compile Include="Admin\createNoti.aspx.designer.cs">
       <DependentUpon>createNoti.aspx</DependentUpon>
     </Compile>
-    <Compile Include="customersManage.aspx.cs">
+    <Compile Include="Admin\customersManage.aspx.cs">
       <DependentUpon>customersManage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="customersManage.aspx.designer.cs">
+    <Compile Include="Admin\customersManage.aspx.designer.cs">
       <DependentUpon>customersManage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="editCustomer.aspx.cs">
+    <Compile Include="Admin\editCustomer.aspx.cs">
       <DependentUpon>editCustomer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="editCustomer.aspx.designer.cs">
+    <Compile Include="Admin\editCustomer.aspx.designer.cs">
       <DependentUpon>editCustomer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="editRoomType.aspx.cs">
+    <Compile Include="Admin\editRoomType.aspx.cs">
       <DependentUpon>editRoomType.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="editRoomType.aspx.designer.cs">
+    <Compile Include="Admin\editRoomType.aspx.designer.cs">
       <DependentUpon>editRoomType.aspx</DependentUpon>
     </Compile>
-    <Compile Include="roomDetail.aspx.cs">
+    <Compile Include="Admin\roomDetail.aspx.cs">
       <DependentUpon>roomDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="roomDetail.aspx.designer.cs">
+    <Compile Include="Admin\roomDetail.aspx.designer.cs">
       <DependentUpon>roomDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\models\CustomerTBL.cs" />
     <Compile Include="App_Code\models\LoginModel.cs" />
-    <Compile Include="roomType.aspx.cs">
+    <Compile Include="Admin\roomType.aspx.cs">
       <DependentUpon>roomType.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="roomType.aspx.designer.cs">
+    <Compile Include="Admin\roomType.aspx.designer.cs">
       <DependentUpon>roomType.aspx</DependentUpon>
     </Compile>
     <Content Include="App_Code\models\RoomContent.cs" />
     <Compile Include="App_Code\models\RoomInfoTBL.cs" />
     <Compile Include="App_Code\models\RoomStatus.cs" />
     <Compile Include="App_Code\models\RoomTypeTBL.cs" />
+    <Compile Include="Customer\customerInfo.aspx.cs">
+      <DependentUpon>customerInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\customerInfo.aspx.designer.cs">
+      <DependentUpon>customerInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -138,9 +151,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Admin\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

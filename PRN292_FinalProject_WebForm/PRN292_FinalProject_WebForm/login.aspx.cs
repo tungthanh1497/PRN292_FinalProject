@@ -35,12 +35,14 @@ namespace PRN292_FinalProject_WebForm
                 }
                 else if (customerID == 0)
                 {
-                    Response.Redirect("Admin.aspx");
+                    Session["userID"] = 0;
+                    Response.Redirect("Admin/Admin.aspx");
                     return;
                 }
                 else
                 {
-                    Label1.Text = "1";
+                    Session["userID"] = customerID;
+                    Response.Redirect("Customer/customerInfo.aspx");
                     return;
                 }
             }
