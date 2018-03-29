@@ -363,9 +363,28 @@ namespace PRN292_FinalProject_WebForm
             }
         }
 
+        public static void updateDefaultFee(int roomNumber, DateTime date)
+        {
+            string dateStr =date.Year + "-" + date.Month + "-01";
+            if (!billIsExist(roomNumber, dateStr))
+            {
+                createNewBill(roomNumber, dateStr);
+            }
+            string sql = @" UPDATE BillTBL 
+                            SET defaultFee=@defaultFee 
+                            WHERE roomNumber="+roomNumber+" and monthBill='"+dateStr+"'";
+            RoomInfoTBL ri = getRoomInfoById(roomNumber);
+            SqlParameter defaultFeeParam = new SqlParameter("@defaultFee", SqlDbType.NVarChar);
+            defaultFeeParam.Value = ri.NumPerson*100000;
+            SqlCommand command = new SqlCommand(sql, getConnection());
+            command.Parameters.Add(defaultFeeParam);
+            command.Connection.Open();
+            int i = command.ExecuteNonQuery();
+            command.Connection.Close();
+        }
 
         #endregion
-        #region ThoanNV
+            #region ThoanNV
         public static List<RoomInfoTBL> getDataRoomInfo()
         {
             List<RoomInfoTBL> arr = new List<RoomInfoTBL>();

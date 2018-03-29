@@ -9,6 +9,8 @@ namespace PRN292_FinalProject_WebForm
 {
     public partial class editCustomer : System.Web.UI.Page
     {
+        static int oldRoom = -1;
+        static int newRoom = -1;
         public void loadInfo()
         {
             int customerID = Convert.ToInt32(Request.QueryString["customerID"].ToString());
@@ -20,6 +22,7 @@ namespace PRN292_FinalProject_WebForm
             {
                 if (listCus.ElementAt(i).CustomerID == customerID)
                 {
+                    oldRoom = listCus.ElementAt(i).RoomNumber;
                     tbCurrenRoom.Text = listCus.ElementAt(i).RoomNumber.ToString();
                     tbCID.Text = listCus.ElementAt(i).CustomerID.ToString();
                     tbCName.Text = listCus.ElementAt(i).CustomerName.ToString();
@@ -62,7 +65,11 @@ namespace PRN292_FinalProject_WebForm
                 }
                 DAO.changeAvailble(oldRoomNumber, 1);
             }
-            Response.Redirect("Admin.aspx");
+
+            DAO.updateDefaultFee(oldRoomNumber, DateTime.Today);
+            DAO.updateDefaultFee(newRoomNumber, DateTime.Today);
+
+            Response.Redirect("roomManage.aspx");
         }
 
         protected void btnDeleteCus_Click(object sender, EventArgs e)
@@ -83,6 +90,7 @@ namespace PRN292_FinalProject_WebForm
                 DAO.changeAvailble(roomNumber, 1);
             }
             //NOTE UPDATE DEFAULT FEE
+            DAO.updateDefaultFee(oldRoom, DateTime.Today);
             Response.Redirect("customersManage.aspx");
         }
 
