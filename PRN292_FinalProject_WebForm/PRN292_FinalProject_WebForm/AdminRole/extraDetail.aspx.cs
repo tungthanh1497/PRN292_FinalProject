@@ -11,11 +11,13 @@ namespace PRN292_FinalProject_WebForm.AdminRole
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            int roomID = Convert.ToInt32(Request.QueryString["roomID"].ToString());
-            List<ExtraTBL> exList = DAO.getExtras(roomID, DateTime.Today);
-            gvExtras.DataSource = exList;
-            gvExtras.DataBind();
+            if (!IsPostBack)
+            {
+                int roomID = Convert.ToInt32(Request.QueryString["roomID"].ToString());
+                List<ExtraTBL> exList = DAO.getExtras(roomID, DateTime.Today);
+                gvExtras.DataSource = exList;
+                gvExtras.DataBind();
+            }
         }
     }
 }

@@ -257,7 +257,7 @@ namespace PRN292_FinalProject_WebForm
                 }
                 string sqlSelect = @"select * from ExtraTBL where roomNumber="+roomNumber 
                                     + @"and extraDate>='"+ currentMonth + @"' 
-                                    and extraDate<'" + currentMonth + "'";
+                                    and extraDate<'" + nextMonth + "'";
                 DataTable dt = getDataBySQL(sqlSelect);
                 List<ExtraTBL> exList = new List<ExtraTBL>();
                 foreach (DataRow dr in dt.Rows)
@@ -279,6 +279,57 @@ namespace PRN292_FinalProject_WebForm
         }
 
 
+        public static void createNewExtra(ExtraTBL extraTBL)
+        {
+            DateTime td = DateTime.Today;
+            string sql = @"  insert into ExtraTBL(roomNumber, productName, quantity,pricePerProduct,detail,extraDate) 
+                            values(@roomNumber,@productName,@quantity,@pricePerProduct,@detail,'" + td.Year + "-" + td.Month + "-" + td.Day + "')";
+            SqlParameter roomNumberParam = new SqlParameter("@roomNumber", SqlDbType.Int);
+            roomNumberParam.Value = extraTBL.RoomNumber;
+            SqlParameter productNameParam = new SqlParameter("@productName", SqlDbType.NVarChar);
+            productNameParam.Value = extraTBL.ExtraName;
+            SqlParameter quantityParam = new SqlParameter("@quantity", SqlDbType.Int);
+            quantityParam.Value = extraTBL.ExtraNumber;
+            SqlParameter pricePerProductParam = new SqlParameter("@pricePerProduct", SqlDbType.Int);
+            pricePerProductParam.Value = extraTBL.Price;
+            SqlParameter detailParam = new SqlParameter("@detail", SqlDbType.NVarChar);
+            detailParam.Value = extraTBL.Detail;
+            SqlCommand command = new SqlCommand(sql, getConnection());
+            command.Parameters.Add(roomNumberParam);
+            command.Parameters.Add(productNameParam);
+            command.Parameters.Add(quantityParam);
+            command.Parameters.Add(pricePerProductParam);
+            command.Parameters.Add(detailParam);
+            command.Connection.Open();
+            int i = command.ExecuteNonQuery();
+            command.Connection.Close();
+        }
+
+
+        public static void updateExtraBill(ExtraTBL extraTBL)
+        {
+            if(!billIsExist(extraTBL.RoomNumber, extraTBL.ExtraDate.Year + "-" + extraTBL.ExtraDate.Month + "-01"))
+            {
+                createNewBill(extraTBL.RoomNumber);
+            }
+            DateTime dt = extraTBL.ExtraDate;
+            string currentMonth = dt.Year + "-" + dt.Month + "-01";
+            string nextMonth = dt.Year + "-" + (dt.Month + 1) + "-01"; ;
+            if (dt.Month == 12)
+            {
+                nextMonth = (dt.Year + 1) + "-01-01";
+            }
+            string sql = @" UPDATE BillTBL
+                            SET extraFee = (SELECT SUM(pricePerProduct*quantity) as result
+				                            FROM ExtraTBL
+				                            where roomNumber=1 and extraDate>='"+currentMonth+ @"' and extraDate<'" + nextMonth + @"')
+                            where roomNumber=" + extraTBL.RoomNumber + " and monthBill='" + currentMonth + "'";
+            
+            SqlCommand command = new SqlCommand(sql, getConnection());
+            command.Connection.Open();
+            int i = command.ExecuteNonQuery();
+            command.Connection.Close();
+        }
 
 
 

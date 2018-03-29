@@ -53,6 +53,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminRole\addExtra.aspx" />
     <Content Include="AdminRole\extraDetail.aspx" />
     <Content Include="AdminRole\roomManage.aspx" />
     <Content Include="AdminRole\billDetail.aspx" />
@@ -70,6 +71,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminRole\addExtra.aspx.cs">
+      <DependentUpon>addExtra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminRole\addExtra.aspx.designer.cs">
+      <DependentUpon>addExtra.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminRole\extraDetail.aspx.cs">
       <DependentUpon>extraDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

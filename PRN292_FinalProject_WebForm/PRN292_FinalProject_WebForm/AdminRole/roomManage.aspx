@@ -29,7 +29,7 @@
                 <asp:CheckBoxField ShowHeader="true" HeaderText ="Closed" DataField="Closed" />
                 <asp:CheckBoxField ShowHeader="true" HeaderText ="Available" DataField="Available" />      
                 <asp:HyperLinkField DataNavigateUrlFields="RoomNumber" DataNavigateUrlFormatString="roomDetail.aspx?roomID={0}" Text="Detail" />   
-                <asp:HyperLinkField DataNavigateUrlFields="RoomNumber" DataNavigateUrlFormatString="createExtra.aspx?roomID={0}" Text="Add Extra" />         
+                <asp:HyperLinkField DataNavigateUrlFields="RoomNumber" DataNavigateUrlFormatString="addExtra.aspx?roomID={0}" Text="Add Extra" />         
             </Columns>
         </asp:GridView>
         

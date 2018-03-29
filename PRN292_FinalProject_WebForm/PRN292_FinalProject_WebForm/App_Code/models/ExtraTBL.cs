@@ -116,5 +116,15 @@ namespace PRN292_FinalProject_WebForm
             this.Detail = detail;
             this.ExtraDate = extraDate;
         }
+
+        public ExtraTBL(int roomNumber, string extraName, int extraNumber, int price, string detail, DateTime extraDate)
+        {
+            this.RoomNumber = roomNumber;
+            this.ExtraName = extraName;
+            this.ExtraNumber = extraNumber;
+            this.Price = price;
+            this.Detail = detail;
+            this.ExtraDate = extraDate;
+        }
     }
 }
