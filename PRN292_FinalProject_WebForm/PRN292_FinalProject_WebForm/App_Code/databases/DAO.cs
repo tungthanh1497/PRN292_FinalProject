@@ -326,7 +326,7 @@ namespace PRN292_FinalProject_WebForm
             string sql = @" UPDATE BillTBL
                             SET extraFee = (SELECT SUM(pricePerProduct*quantity) as result
 				                            FROM ExtraTBL
-				                            where roomNumber=1 and extraDate>='"+currentMonth+ @"' and extraDate<'" + nextMonth + @"')
+				                            where roomNumber="+extraTBL.RoomNumber+" and extraDate>='"+currentMonth+ @"' and extraDate<'" + nextMonth + @"')
                             where roomNumber=" + extraTBL.RoomNumber + " and monthBill='" + currentMonth + "'";
             
             SqlCommand command = new SqlCommand(sql, getConnection());

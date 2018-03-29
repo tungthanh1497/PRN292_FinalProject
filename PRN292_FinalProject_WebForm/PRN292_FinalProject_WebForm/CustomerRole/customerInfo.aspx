@@ -11,14 +11,14 @@
     <form id="form1" runat="server">
     <div id="backGround">
          <h1>Welcome to Boarding House</h1>
-    <asp:HyperLink CssClass="colorGreen" NavigateUrl="#" ID="hplRoomInfo" runat="server">Information</asp:HyperLink>
+    <asp:HyperLink CssClass="colorGreen" NavigateUrl="customerInfo.aspx" ID="hplRoomInfo" runat="server">Information</asp:HyperLink>
          &nbsp;&nbsp;<asp:HyperLink CssClass="colorGreen" NavigateUrl="#" ID="hplViewBill" runat="server">View Bill</asp:HyperLink>
          &nbsp;&nbsp;
         <asp:HyperLink CssClass="colorGreen" NavigateUrl="CutomerNotification.aspx" ID="hplRoomType" runat="server">Notification</asp:HyperLink>
          &nbsp;&nbsp;
         <asp:HyperLink CssClass="colorGreen" NavigateUrl="ChangePSW.aspx" ID="hplCreateNotification" runat="server">Change Password</asp:HyperLink>
          &nbsp;&nbsp;
-        <asp:HyperLink CssClass="colorGreen" NavigateUrl="#" ID="hplLogout" runat="server">Log out</asp:HyperLink>
+        <asp:HyperLink CssClass="colorGreen" NavigateUrl="../login.aspx" ID="hplLogout" runat="server">Log out</asp:HyperLink>
         <br />
         <br />
 
@@ -57,11 +57,6 @@
                 <asp:TableCell>Room Price:</asp:TableCell>
                 <asp:TableCell>
                     <asp:Label ID="lblRoomPrice" runat="server" Text=""></asp:Label></asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>Room Type:</asp:TableCell>
-                <asp:TableCell>
-                    <asp:Label ID="lblRoomType" runat="server" Text=""></asp:Label></asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>Number of Roomates:</asp:TableCell>

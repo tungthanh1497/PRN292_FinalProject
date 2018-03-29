@@ -10,13 +10,19 @@
 <body>
     <form id="form1" runat="server">
         <div id="backGround">
+            
+         <h1>Welcome to Boarding House</h1>
+    <asp:HyperLink CssClass="colorGreen" NavigateUrl="customerInfo.aspx" ID="hplRoomInfo" runat="server">Information</asp:HyperLink>
+         &nbsp;&nbsp;<asp:HyperLink CssClass="colorGreen" NavigateUrl="#" ID="hplViewBill" runat="server">View Bill</asp:HyperLink>
+         &nbsp;&nbsp;
+        <asp:HyperLink CssClass="colorGreen" NavigateUrl="CutomerNotification.aspx" ID="hplRoomType" runat="server">Notification</asp:HyperLink>
+         &nbsp;&nbsp;
+        <asp:HyperLink CssClass="colorGreen" NavigateUrl="ChangePSW.aspx" ID="hplCreateNotification" runat="server">Change Password</asp:HyperLink>
+         &nbsp;&nbsp;
+        <asp:HyperLink CssClass="colorGreen" NavigateUrl="../login.aspx" ID="hplLogout" runat="server">Log out</asp:HyperLink>
+        <br />
+        <br />
 
-            <h1>Welcome to Boarding House</h1>
-            <u><a class="colorGreen" href="customerInfo.aspx">Information</a></a></u> &nbsp
-         <u><a class="colorGreen" href="">View Bill</a></a></u>&nbsp
-         <u><a class="colorGreen" href="CutomerNotification.aspx">Notification</a></a></u>&nbsp
-         <u><a class="colorGreen" href>Change Password</a></a></u>&nbsp
-         <u><a class="colorGreen" href>Sign out</a></a></u>&nbsp
             <h2 class="colorBlue">Change Password</h2>
             <br />
             <table class="table">

@@ -32,7 +32,7 @@
                 <asp:TableCell>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:Button CssClass="buttonSubmit" ID="btnLogin" runat="server" Text="Button" OnClick="btnLogin_Click"/>
+                    <asp:Button CssClass="buttonSubmit" ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click"/>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>

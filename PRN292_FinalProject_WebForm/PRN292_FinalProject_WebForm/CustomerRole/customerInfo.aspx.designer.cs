@@ -139,15 +139,6 @@ namespace PRN292_FinalProject_WebForm.Customer {
         protected global::System.Web.UI.WebControls.Label lblRoomPrice;
         
         /// <summary>
-        /// lblRoomType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRoomType;
-        
-        /// <summary>
         /// lblNumRoomates control.
         /// </summary>
         /// <remarks>

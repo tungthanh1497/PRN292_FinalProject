@@ -22,6 +22,7 @@ namespace PRN292_FinalProject_WebForm.Customer
             lblJoinDate.Text = cm.DateJoin.ToString();
             lblRoomNumber.Text = cm.RoomNumber + "";
             lblNumRoomates.Text = (DAO.getNumberPersonsInRoom(cm.RoomNumber) - 1) + "";
+            lblRoomPrice.Text = DAO.getRoomPriceByRoomNumber(cm.RoomNumber) + "";
 
             hplViewBill.NavigateUrl = "viewBill.aspx?roomID=" + cm.RoomNumber;
         }

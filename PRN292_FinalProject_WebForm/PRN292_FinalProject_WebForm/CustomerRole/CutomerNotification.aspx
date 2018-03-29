@@ -10,14 +10,19 @@
 <body>
     <form id="form1" runat="server">
     <div id="backGround">
+        
+         <h1>Welcome to Boarding House</h1>
+    <asp:HyperLink CssClass="colorGreen" NavigateUrl="customerInfo.aspx" ID="hplRoomInfo" runat="server">Information</asp:HyperLink>
+         &nbsp;&nbsp;<asp:HyperLink CssClass="colorGreen" NavigateUrl="#" ID="hplViewBill" runat="server">View Bill</asp:HyperLink>
+         &nbsp;&nbsp;
+        <asp:HyperLink CssClass="colorGreen" NavigateUrl="CutomerNotification.aspx" ID="hplRoomType" runat="server">Notification</asp:HyperLink>
+         &nbsp;&nbsp;
+        <asp:HyperLink CssClass="colorGreen" NavigateUrl="ChangePSW.aspx" ID="hplCreateNotification" runat="server">Change Password</asp:HyperLink>
+         &nbsp;&nbsp;
+        <asp:HyperLink CssClass="colorGreen" NavigateUrl="../login.aspx" ID="hplLogout" runat="server">Log out</asp:HyperLink>
+        <br />
+        <br />
 
-            <h1>Welcome to Boarding House</h1>
-            <u><a class="colorGreen" href="customerInfo.aspx">Information</a></a></u> &nbsp
-         <u><a class="colorGreen" href="">View Bill</a></a></u>&nbsp
-         <u><a class="colorGreen" href="CutomerNotification.aspx">Notification</a></a></u>&nbsp
-         <u><a class="colorGreen" href="ChangePSW.aspx">Change Password</a></a></u>&nbsp
-         <u><a class="colorGreen" href>Sign out</a></a></u>&nbsp
-            <h2 class="colorBlue">Notification </h2>
             <asp:GridView  ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#E3F2FD" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="0px" CellPadding="4" EnableModelValidation="True" ForeColor="Black" GridLines="Horizontal" ShowHeader="False" Width="425px" AllowPaging="True" PageSize="5" OnPageIndexChanging="GridView1_PageIndexChanging">
                 <Columns>
                     <asp:BoundField DataField="sdfDate" />

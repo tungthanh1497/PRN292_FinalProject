@@ -21,7 +21,7 @@ namespace PRN292_FinalProject_WebForm
             string content = tbContent.Text.Trim();
             DateTime date = Convert.ToDateTime(tbDate.Text.Trim());
             DAO.createNoti(title, content, date);
-            Response.Redirect("Admin.aspx");
+            Response.Redirect("roomManage.aspx");
         }
     }
 }
