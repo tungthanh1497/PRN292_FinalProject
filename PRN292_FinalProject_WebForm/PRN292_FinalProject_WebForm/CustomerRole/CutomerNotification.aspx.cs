@@ -45,5 +45,14 @@ namespace PRN292_FinalProject_WebForm
             }
                
         }
+
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            List<NotificationTBL> ls = new List<NotificationTBL>();
+            ls = DAO.getListNotification();
+            GridView1.DataSource = ls;
+            GridView1.DataBind();
+        }
     }
 }

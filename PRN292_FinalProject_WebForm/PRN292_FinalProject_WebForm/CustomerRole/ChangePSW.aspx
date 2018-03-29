@@ -5,63 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style>
-        h1 {
-            font-family: Kunstler Script;
-            font-size: 50px;
-            color: #0000ff;
-        }
-
-        #backGround {
-            background-color: #e3f2fd;
-        }
-
-        .colorGreen {
-            color: forestgreen;
-        }
-
-        .colorBlue {
-            color: blue;
-        }
-
-        .table {
-            white-space: 5px;
-        }
-
-        #notification {
-            width: 500px;
-            height: auto;
-            border-style: solid;
-            border-color: red;
-            color: red;
-        }
-
-        .buttonSubmit {
-            background: #64b5f6;
-            border-radius: 12px;
-            width: 80px;
-            height: 30px;
-        }
-
-        .activeNotify {
-            border: solid;
-            color: white;
-            background-color: red;
-            border-color: red;
-            border-radius: 12px;
-        }
-
-        .activeSuccess {
-            border: solid;
-            color: blue;
-            background-color: aquamarine;
-            border-color: aquamarine;
-            border-radius: 12px;
-        }
-        .nonoBorder{
-            border: none;
-        }
-    </style>
+    <link href="/CSS_Style/Home.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">

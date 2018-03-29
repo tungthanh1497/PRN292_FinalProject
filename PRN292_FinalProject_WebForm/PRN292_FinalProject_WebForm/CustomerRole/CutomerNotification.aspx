@@ -5,67 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style>
-        h1 {
-            font-family: Kunstler Script;
-            font-size: 50px;
-            color: #0000ff;
-        }
-
-        #backGround {
-            background-color: #e3f2fd;
-        }
-        .background{
-            background-color: #e3f2fd;
-            width: 436px;
-        }
-
-        .colorGreen {
-            color: forestgreen;
-        }
-
-        .colorBlue {
-            color: blue;
-        }
-
-        .table {
-            white-space: 5px;
-        }
-
-        #notification {
-            width: 500px;
-            height: auto;
-            border-style: solid;
-            border-color: red;
-            color: red;
-        }
-
-        .buttonSubmit {
-            background: #64b5f6;
-            border-radius: 12px;
-            width: 80px;
-            height: 30px;
-        }
-         .nonoBorder{
-            border: none;
-        }
-
-        .activeNotify {
-            border: solid;
-            color: white;
-            background-color: red;
-            border-color: red;
-            border-radius: 12px;
-        }
-
-        .activeSuccess {
-            border: solid;
-            color: blue;
-            background-color: aquamarine;
-            border-color: aquamarine;
-            border-radius: 12px;
-        }
-    </style>
+    <link href="/CSS_Style/Home.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -78,7 +18,7 @@
          <u><a class="colorGreen" href="ChangePSW.aspx">Change Password</a></a></u>&nbsp
          <u><a class="colorGreen" href>Sign out</a></a></u>&nbsp
             <h2 class="colorBlue">Notification </h2>
-            <asp:GridView  ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#E3F2FD" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="0px" CellPadding="4" EnableModelValidation="True" ForeColor="Black" GridLines="Horizontal" ShowHeader="False" Width="425px">
+            <asp:GridView  ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#E3F2FD" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="0px" CellPadding="4" EnableModelValidation="True" ForeColor="Black" GridLines="Horizontal" ShowHeader="False" Width="425px" AllowPaging="True" PageSize="5" OnPageIndexChanging="GridView1_PageIndexChanging">
                 <Columns>
                     <asp:BoundField DataField="sdfDate" />
                     <asp:HyperLinkField DataNavigateUrlFields="notificationID" DataTextField="title" DataNavigateUrlFormatString="CutomerNotification.aspx?ID={0}" />
@@ -87,6 +27,7 @@
                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
                 <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#e3f2fd" HorizontalAlign="Center" />
             </asp:GridView>
             <asp:TextBox CssClass="nonoBorder" ID="TextBoxTitle" runat="server" BackColor="#E3F2FD" Width="259px" Visible="False" ReadOnly="True"></asp:TextBox>
             <br />

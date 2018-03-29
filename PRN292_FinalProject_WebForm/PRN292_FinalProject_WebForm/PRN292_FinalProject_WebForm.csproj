@@ -61,6 +61,7 @@
     <Content Include="AdminRole\customersManage.aspx" />
     <Content Include="AdminRole\editCustomer.aspx" />
     <Content Include="AdminRole\editRoomType.aspx" />
+    <Content Include="CSS_Style\Home.css" />
     <Content Include="CustomerRole\ChangePSW.aspx" />
     <Content Include="CustomerRole\customerInfo.aspx" />
     <Content Include="CustomerRole\CutomerNotification.aspx" />
