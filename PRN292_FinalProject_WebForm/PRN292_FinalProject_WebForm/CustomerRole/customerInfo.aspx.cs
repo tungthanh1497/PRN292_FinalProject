@@ -12,6 +12,8 @@ namespace PRN292_FinalProject_WebForm.Customer
         protected void Page_Load(object sender, EventArgs e)
         {
             int userID = (int)Session["userID"];
+
+
             CustomerModel cm = DAO.getCustomerByID(userID);
             lblCustomerName.Text = cm.CustomerName;
             lblIdentifyCard.Text = cm.IdentityCard;
@@ -20,6 +22,8 @@ namespace PRN292_FinalProject_WebForm.Customer
             lblJoinDate.Text = cm.DateJoin.ToString();
             lblRoomNumber.Text = cm.RoomNumber + "";
             lblNumRoomates.Text = (DAO.getNumberPersonsInRoom(cm.RoomNumber) - 1) + "";
+
+            hplViewBill.NavigateUrl = "viewBill.aspx?roomID=" + cm.RoomNumber;
         }
     }
 }

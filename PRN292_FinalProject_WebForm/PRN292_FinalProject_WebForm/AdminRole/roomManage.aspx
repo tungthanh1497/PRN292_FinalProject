@@ -25,6 +25,7 @@
             <Columns>
                 <asp:BoundField HeaderText ="Room Number"  DataField="RoomNumber" />
                 <asp:BoundField HeaderText ="Number of Person" DataField="NumPerson" />
+                <asp:BoundField HeaderText ="Bill this month" DataField="TotalBill" />
                 <asp:CheckBoxField ShowHeader="true" HeaderText ="Optional" DataField="Optional"  />
                 <asp:CheckBoxField ShowHeader="true" HeaderText ="Closed" DataField="Closed" />
                 <asp:CheckBoxField ShowHeader="true" HeaderText ="Available" DataField="Available" />      

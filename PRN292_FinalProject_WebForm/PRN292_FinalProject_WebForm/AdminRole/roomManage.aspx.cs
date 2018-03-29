@@ -44,7 +44,10 @@ namespace PRN292_FinalProject_WebForm
                         break;
                     }
                 }
-                roomStatus.Add(new RoomStatus(roomNumber, optional, closed, numPerson, price, available));
+                DateTime td = DateTime.Today;
+                int totalBill = DAO.getTotalBill(roomNumber, td.Year + "-" + td.Month + "-01");
+
+                roomStatus.Add(new RoomStatus(roomNumber, optional, closed, numPerson, price, available, totalBill));
             }
             gvAdmin.DataSource = roomStatus;            
             gvAdmin.DataBind();

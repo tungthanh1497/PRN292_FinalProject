@@ -30,7 +30,7 @@ After:
         private int numPerson;
         private int price;
         private bool available;
-
+        private int totalBill;
         public int RoomNumber
         {
             get
@@ -109,7 +109,20 @@ After:
             }
         }
 
-        public RoomStatus(int roomNumber, bool optional, bool closed, int numPerson, int price, bool available)
+        public int TotalBill
+        {
+            get
+            {
+                return totalBill;
+            }
+
+            set
+            {
+                totalBill = value;
+            }
+        }
+
+        public RoomStatus(int roomNumber, bool optional, bool closed, int numPerson, int price, bool available, int totalBill)
         {
             this.RoomNumber = roomNumber;
             this.Optional = optional;
@@ -117,6 +130,7 @@ After:
             this.NumPerson = numPerson;
             this.Price = price;
             this.Available = available;
+            this.TotalBill = totalBill;
         }
     }
 }

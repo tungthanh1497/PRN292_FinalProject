@@ -64,6 +64,7 @@
     <Content Include="CustomerRole\ChangePSW.aspx" />
     <Content Include="CustomerRole\customerInfo.aspx" />
     <Content Include="CustomerRole\CutomerNotification.aspx" />
+    <Content Include="CustomerRole\viewBill.aspx" />
     <Content Include="Global.asax" />
     <Content Include="login.aspx" />
     <Content Include="AdminRole\roomDetail.aspx" />
@@ -101,6 +102,7 @@
     </Compile>
     <Compile Include="App_Code\databases\DAO.cs" />
     <Compile Include="App_Code\models\BillDetailModel.cs" />
+    <Compile Include="App_Code\models\BillTBL.cs" />
     <Compile Include="App_Code\models\CustomerModel.cs" />
     <Compile Include="App_Code\models\ExtraTBL.cs" />
     <Compile Include="App_Code\models\NotificationTBL.cs" />
@@ -173,6 +175,13 @@
     </Compile>
     <Compile Include="CustomerRole\CutomerNotification.aspx.designer.cs">
       <DependentUpon>CutomerNotification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerRole\viewBill.aspx.cs">
+      <DependentUpon>viewBill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerRole\viewBill.aspx.designer.cs">
+      <DependentUpon>viewBill.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -46,7 +46,7 @@
     <div id="backGround">
          <h1>Welcome to Boarding House</h1>
     <asp:HyperLink CssClass="colorGreen" NavigateUrl="#" ID="hplRoomInfo" runat="server">Information</asp:HyperLink>
-         &nbsp;&nbsp;<asp:HyperLink CssClass="colorGreen" NavigateUrl="#" ID="hplCustomerManage" runat="server">View Bill</asp:HyperLink>
+         &nbsp;&nbsp;<asp:HyperLink CssClass="colorGreen" NavigateUrl="#" ID="hplViewBill" runat="server">View Bill</asp:HyperLink>
          &nbsp;&nbsp;
         <asp:HyperLink CssClass="colorGreen" NavigateUrl="CutomerNotification.aspx" ID="hplRoomType" runat="server">Notification</asp:HyperLink>
          &nbsp;&nbsp;

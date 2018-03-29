@@ -24,19 +24,18 @@
                     <asp:Label ID="lblPsw" runat="server" Text="Password:"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtPsw" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPsw" TextMode="Password" runat="server"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:Button ID="btnLogin" runat="server" Text="Button" OnClick="btnLogin_Click"/>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
-    
+                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </div>
     </form>
 </body>

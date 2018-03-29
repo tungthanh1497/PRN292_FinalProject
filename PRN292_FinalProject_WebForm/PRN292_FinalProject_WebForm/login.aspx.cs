@@ -21,7 +21,7 @@ namespace PRN292_FinalProject_WebForm
             string psw = txtPsw.Text.Trim();
             if (uname.Length == 0 || psw.Length == 0)
             {
-                Label1.Text = "1";
+                Label1.Text = "Lgoin Fail";
                 return;
             }
             LoginModel lm = new LoginModel(uname, psw);
@@ -30,7 +30,7 @@ namespace PRN292_FinalProject_WebForm
                 int customerID = DAO.checkLogin(lm);
                 if (customerID == -1)
                 {
-                    Label1.Text = "-1";
+                    Label1.Text = "Lgoin Fail";
                     return;
                 }
                 else if (customerID == 0)
@@ -48,7 +48,7 @@ namespace PRN292_FinalProject_WebForm
             }
             catch (Exception ex)
             {
-                Label1.Text = "2";
+                Label1.Text = "Lgoin Fail";
                 return;
             }
         }

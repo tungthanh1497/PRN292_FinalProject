@@ -110,14 +110,18 @@ namespace PRN292_FinalProject_WebForm
             {
                 int num = 0;
                 string sqlSelect = @"select COUNT(*) as num from BillTBL 
-                                    where roomNumber=1 and monthBill='" + date + "'";
+                                    where roomNumber="+roomNumber+" and monthBill='" + date + "'";
                 DataTable dt = getDataBySQL(sqlSelect);
                 foreach (DataRow dr in dt.Rows)
                 {
                     num = Convert.ToInt32(dr["num"].ToString());
                     break;
                 }
-                return (num != 0);
+                if (num == 0)
+                {
+                    return false;
+                }
+                return true;
             }
             catch (Exception e)
             {
@@ -148,12 +152,11 @@ namespace PRN292_FinalProject_WebForm
         }
 
 
-        public static void createNewBill(int roomNumber)
+        public static void createNewBill(int roomNumber, string date)
         {
             RoomInfoTBL ri = getRoomInfoById(roomNumber);
-            DateTime td = DateTime.Today;
             string sql = @"  insert into BillTBL(roomNumber, defaultFee, electricity,extraFee,monthBill) 
-                            values(@roomNumber,@defaultFee,0,0,'"+td.Year+"-"+td.Month+"-01')";
+                            values(@roomNumber,@defaultFee,0,0,'"+date+"')";
             SqlParameter roomNumberParam = new SqlParameter("@roomNumber", SqlDbType.Int);
             roomNumberParam.Value = roomNumber;
             SqlParameter defaultFeeParam = new SqlParameter("@defaultFee", SqlDbType.Int);
@@ -169,7 +172,7 @@ namespace PRN292_FinalProject_WebForm
         {
             if(!billIsExist(roomNumber, date))
             {
-                createNewBill(roomNumber);
+                createNewBill(roomNumber,date);
             }
             try
             {
@@ -234,9 +237,9 @@ namespace PRN292_FinalProject_WebForm
                 foreach (DataRow dr in dt.Rows)
                 {
                     btm = new BillDetailModel(getRoomPriceByRoomNumber(roomNumber)
-                                        , Convert.ToInt32(dr["extraFee"].ToString())
                                         , Convert.ToInt32(dr["defaultFee"].ToString())
-                                        , Convert.ToInt32(dr["electricity"].ToString()));
+                                        , Convert.ToInt32(dr["electricity"].ToString())
+                                        , Convert.ToInt32(dr["extraFee"].ToString()));
                 }
                 return btm;
             }
@@ -308,9 +311,10 @@ namespace PRN292_FinalProject_WebForm
 
         public static void updateExtraBill(ExtraTBL extraTBL)
         {
-            if(!billIsExist(extraTBL.RoomNumber, extraTBL.ExtraDate.Year + "-" + extraTBL.ExtraDate.Month + "-01"))
+            string date = extraTBL.ExtraDate.Year + "-" + extraTBL.ExtraDate.Month + "-01";
+            if (!billIsExist(extraTBL.RoomNumber, date))
             {
-                createNewBill(extraTBL.RoomNumber);
+                createNewBill(extraTBL.RoomNumber, date);
             }
             DateTime dt = extraTBL.ExtraDate;
             string currentMonth = dt.Year + "-" + dt.Month + "-01";
@@ -331,6 +335,33 @@ namespace PRN292_FinalProject_WebForm
             command.Connection.Close();
         }
 
+        public static List<BillTBL> getListBillbyRoomID(int roomID)
+        {
+
+            try
+            {
+                string sqlSelect = @"SELECT *
+                                    FROM BillTBL
+                                    where roomNumber=" + roomID;
+                DataTable dt = getDataBySQL(sqlSelect);
+                List<BillTBL> billList = new List<BillTBL>();
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    billList.Add(new BillTBL(getRoomPriceByRoomNumber(roomID)
+                                        ,roomID
+                                        , Convert.ToInt32(dr["defaultFee"].ToString())
+                                        , Convert.ToInt32(dr["electricity"].ToString())
+                                        , Convert.ToInt32(dr["extraFee"].ToString())
+                                        , Convert.ToDateTime(dr["monthBill"].ToString())));
+                }
+                return billList;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
 
 
         #endregion
